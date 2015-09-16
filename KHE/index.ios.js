@@ -75,6 +75,17 @@ var KHE = React.createClass({
           }}>
           {this._renderContent('#21551C', 'Green Tab', this.state.presses)}
         </TabBarIOS.Item>
+        <TabBarIOS.Item
+          title="TabTab"
+          icon={{uri: base64Icon, scale: 3}}
+          selected={this.state.selectedTab === 'TabTab'}
+          onPress={() => {
+            this.setState({
+              selectedTab: 'TabTab',
+            });
+          }}>
+          {this._renderContent('#414A8C', 'TabTab')}
+        </TabBarIOS.Item>
       </TabBarIOS>
     );
   },

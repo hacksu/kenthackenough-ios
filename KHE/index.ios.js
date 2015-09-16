@@ -59,7 +59,7 @@ var KHE = React.createClass({
           onPress={() => {
             this.setState({
               selectedTab: 'redTab',
-              notifCount: this.state.notifCount + 1,
+              // notifCount: this.state.notifCount + 1,
             });
           }}>
           {this._renderContent('#783E33', 'Red Tab', this.state.notifCount)}
@@ -70,7 +70,7 @@ var KHE = React.createClass({
           onPress={() => {
             this.setState({
               selectedTab: 'greenTab',
-              presses: this.state.presses + 1
+              // presses: this.state.presses + 1
             });
           }}>
           {this._renderContent('#21551C', 'Green Tab', this.state.presses)}

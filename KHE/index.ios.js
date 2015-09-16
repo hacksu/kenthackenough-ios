@@ -57,7 +57,7 @@ var KHE = React.createClass({
           {this._renderContent('#414A8C', 'Blue Tab')}
         </TabBarIOS.Item>
         <TabBarIOS.Item
-          title="Scedule"
+          title="Schedule"
           icon={{uri: CloverBase64Icon, scale: 17}}
           badge={this.state.notifCount > 0 ? this.state.notifCount : undefined}
           selected={this.state.selectedTab === 'redTab'}

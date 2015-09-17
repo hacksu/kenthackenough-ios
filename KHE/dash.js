@@ -13,9 +13,9 @@ class Dash extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.description}>
-      Welcome to the DASH
-      </Text>
+        <Text style={styles.description}>
+        Welcome to the DASH
+        </Text>
       </View>
     )
   }

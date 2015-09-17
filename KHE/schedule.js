@@ -6,16 +6,17 @@ var {
   StyleSheet,
   Text,
   View,
-  Component
+  Component,
+  Image
 } = React;
 
 class Schedule extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.description}>
-      Welcome to the SCHEDULE
-      </Text>
+        <Image source={require('./testImage/schedule.png')}
+        style={styles.testImage}>
+        </Image>
       </View>
     )
   }
@@ -32,6 +33,10 @@ var styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#231F20'
+  },
+  testImage: {
+    flex:1,
+    resizeMode: Image.resizeMode.contain
   }
 })
 

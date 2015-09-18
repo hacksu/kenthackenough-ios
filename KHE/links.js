@@ -16,6 +16,7 @@ class Links extends Component {
     return (
       <View style={styles.container}>
       <WebView
+        style={styles.webStyle}
         html={testHTML}
       />
       </View>
@@ -32,12 +33,13 @@ var styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#231F20',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    paddingVertical: 20
   },
-  webView: {
-    backgroundColor: 'white',
-    height: 350
-  },
+  webStyle: {
+    flex: 1,
+    backgroundColor: '#231F20'
+  }
 })
 
 module.exports = Links

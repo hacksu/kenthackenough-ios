@@ -31,7 +31,8 @@ var styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#231F20'
+    backgroundColor: '#231F20',
+    paddingVertical: 20
   }
 })
 

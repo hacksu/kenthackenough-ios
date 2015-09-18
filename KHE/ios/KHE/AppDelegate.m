@@ -31,7 +31,11 @@
    * on the same Wi-Fi network.
    */
 
+<<<<<<< HEAD
+  //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+=======
    //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+>>>>>>> origin/master
 
   /**
    * OPTION 2

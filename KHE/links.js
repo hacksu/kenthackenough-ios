@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var testHTML = '<!DOCTYPE html><html><title>Kent Hack Enough Important Links Site!</title><center><body><h1>KHE resources!</h1><a href="http://www.khe.io">Kent Hack Enough Site</a><br /><br /><a href="http://www.google.com">Other Important Stuff</a><br /><br /><a href="http://www.google.com">More Important Stuff</a><br /><br /><a href="http://www.google.com">Even More Important Stuff</a></body></center></html>'
 
 var {
   StyleSheet,
@@ -15,7 +16,7 @@ class Links extends Component {
     return (
       <View style={styles.container}>
       <WebView
-        url='testWebsite/linksSite.html'
+        html={testHTML}
       />
       </View>
     )

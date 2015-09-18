@@ -11,6 +11,7 @@ var {
   AppRegistry,
   TabBarIOS,
   Component,
+  StatusBarIOS
 } = React;
 
 // TAB IMAGES IN BASE64
@@ -33,6 +34,8 @@ class KHE extends Component {
 
   render() {
     return (
+      StatusBarIOS.setStyle('light-content'),
+
       // TAB BAR IMPLEMENTATION
       <TabBarIOS
         selectedTab={this.state.selectedTab}

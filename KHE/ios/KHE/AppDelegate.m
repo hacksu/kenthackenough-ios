@@ -31,7 +31,13 @@
    * on the same Wi-Fi network.
    */
 
+<<<<<<< Updated upstream
    jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+=======
+
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+
+>>>>>>> Stashed changes
 
   /**
    * OPTION 2

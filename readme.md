@@ -1,4 +1,4 @@
-**KentHackEnough iOS App **
+*KentHackEnough iOS App 
 ===================
 
 
@@ -12,8 +12,6 @@ KHE for iOS is built upon the [react](https://facebook.github.io/react/) and [re
 Install
 -------------
 
-
-----------
 
 
 ### <a class="anchor" name="requirements"></a>Requirements [#](#requirements)
@@ -36,7 +34,7 @@ We recommend periodically running `brew update && brew upgrade` to keep your pro
 
 ----------
 
-###Running [#](#running)
+###<a class="anchor" name="running">Running [#](#running)
 
  1.
 

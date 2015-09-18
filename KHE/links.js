@@ -6,16 +6,17 @@ var {
   StyleSheet,
   Text,
   View,
-  Component
+  Component,
+  WebView
 } = React;
 
 class Links extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Text style={styles.description}>
-      Welcome to the LINKS
-      </Text>
+      <WebView
+        url='testWebsite/linksSite.html'
+      />
       </View>
     )
   }
@@ -29,10 +30,13 @@ var styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#231F20'
-  }
+    backgroundColor: '#231F20',
+    flexDirection: 'column'
+  },
+  webView: {
+    backgroundColor: 'white',
+    height: 350
+  },
 })
 
 module.exports = Links

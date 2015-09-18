@@ -1,4 +1,4 @@
-*KentHackEnough iOS App 
+KentHackEnough iOS App 
 ===================
 
 

@@ -113,9 +113,12 @@
 		00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVibration.xcodeproj; path = "../node_modules/react-native/Libraries/Vibration/RCTVibration.xcodeproj"; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* KHETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KHETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 >>>>>>> origin/master
+=======
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* KHE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KHE.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +202,7 @@
 			sourceTree = "<group>";
 		};
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 		00E356EF1AD99517003FC87E /* KHETests */ = {
 			isa = PBXGroup;
@@ -217,6 +221,8 @@
 			sourceTree = "<group>";
 		};
 >>>>>>> origin/master
+=======
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 		139105B71AF99BAD00B5F7CC /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -361,9 +367,12 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 <<<<<<< HEAD
+<<<<<<< HEAD
 						DevelopmentTeam = 2V6P875KB3;
 =======
 						DevelopmentTeam = 2X275QWH49;
+=======
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -609,10 +618,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "";
 =======
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 >>>>>>> origin/master
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -638,10 +651,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 <<<<<<< HEAD
+<<<<<<< HEAD
 				CODE_SIGN_IDENTITY = "";
 =======
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 >>>>>>> origin/master
+=======
+				CODE_SIGN_IDENTITY = "";
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",

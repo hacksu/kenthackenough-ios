@@ -32,10 +32,20 @@
    */
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
 =======
    //jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
 >>>>>>> origin/master
+=======
+<<<<<<< Updated upstream
+   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+=======
+
+  jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+
+>>>>>>> Stashed changes
+>>>>>>> fc46628e1e90726fc0d9100c9bed0d3181df1420
 
   /**
    * OPTION 2
@@ -47,7 +57,7 @@
    * see http://facebook.github.io/react-native/docs/runningondevice.html
    */
 
-   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"KHE"

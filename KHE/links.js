@@ -32,7 +32,7 @@ class Links extends Component {
     return (
       <View style={styles.container}>
       <Button style={styles.buttonStyle} onPress={this._handlePress}>
-        Go Home
+        Back to Links...
       </Button>
       <WebView
         style={styles.webStyle}
@@ -75,7 +75,9 @@ var styles = StyleSheet.create({
   },
   buttonStyle: {
     color: 'white',
-    textAlign: 'left'
+    textAlign: 'left',
+    fontSize: 14,
+    paddingLeft: 7
   }
 })
 

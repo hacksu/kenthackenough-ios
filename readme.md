@@ -36,9 +36,12 @@ We recommend periodically running `brew update && brew upgrade` to keep your pro
 
 ###<a class="anchor" name="running">Running [#](#running)
 
- 1.
+ 1. 
+ 
+Go to project directory in the KHE folder
 
     npm install -g react-native-cli
+    npm install
 
 
 2.

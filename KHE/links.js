@@ -31,14 +31,14 @@ class Links extends Component {
   render() {
     return (
       <View style={styles.container}>
-      <Button style={styles.buttonStyle} onPress={this._handlePress}>
-        Back
-      </Button>
       <WebView
         style={styles.webStyle}
         url={this.state.url}
         onNavigationStateChange={this.onNavigationStateChange}
       />
+      <Button style={styles.buttonStyle} onPress={this._handlePress}>
+        Back to Links
+      </Button>
       </View>
     )
   }
@@ -70,15 +70,18 @@ var styles = StyleSheet.create({
   },
   webStyle: {
     flex: 1,
-    marginTop: 10,
+    //marginTop: 10,
     backgroundColor: '#231F20',
+    marginBottom: 10
   },
   buttonStyle: {
     color: 'white',
     textAlign: 'left',
-    fontSize: 17,
-    paddingLeft: 20,
-    marginTop: 10
+    backgroundColor: '#231F20',
+    fontSize: 15,
+    textAlign: 'center',
+    //paddingLeft: 20,
+    marginBottom: 40
   }
 })
 

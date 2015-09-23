@@ -32,7 +32,7 @@ class Links extends Component {
     return (
       <View style={styles.container}>
       <Button style={styles.buttonStyle} onPress={this._handlePress}>
-        Back to Links...
+        Back
       </Button>
       <WebView
         style={styles.webStyle}
@@ -66,18 +66,19 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#231F20',
     flexDirection: 'column',
-    paddingVertical: 20,
-    //marginTop: -20
+    paddingVertical: 20
   },
   webStyle: {
     flex: 1,
+    marginTop: 10,
     backgroundColor: '#231F20',
   },
   buttonStyle: {
     color: 'white',
     textAlign: 'left',
-    fontSize: 14,
-    paddingLeft: 7
+    fontSize: 17,
+    paddingLeft: 20,
+    marginTop: 10
   }
 })
 

@@ -3,11 +3,7 @@
 var React = require('react-native');
 var Button = require('react-native-button');
 
-var testHTML = '<!DOCTYPE html><html><title>Kent Hack Enough Important Links Site!</title><center><body><h1>KHE resources!</h1><a href="http://www.khe.io">Kent Hack Enough Site</a><br /><br /><a href="http://www.google.com">Other Important Stuff</a><br /><br /><a href="http://www.google.com">More Important Stuff</a><br /><br /><a href="http://www.google.com">Even More Important Stuff</a></body></center></html>'
-// CHANGE TO RESOURCE SITE
 var HOME_URL = "http://www.google.com"
-// AS FALLBACK URL
-var KHE_URL = "http://www.khe.io"
 
 var {
   StyleSheet,
@@ -19,39 +15,43 @@ var {
 
 class Links extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      url: HOME_URL
-    }
-    this._handlePress = this._handlePress.bind(this)
-    this.onNavigationStateChange = this.onNavigationStateChange.bind(this)
+  componentWillMount() {
+    this.setState({
+      url: HOME_URL,
+      loading: true,
+      status: 'No Page Loaded'
+    })
   }
 
+  webviewRenderError
+
   render() {
+
     return (
       <View style={styles.container}>
       <WebView
         style={styles.webStyle}
         url={this.state.url}
-        onNavigationStateChange={this.onNavigationStateChange}
+        onNavigationStateChange={this.onNavigationStateChange.bind(this)}
       />
-      <Button style={styles.buttonStyle} onPress={this._handlePress}>
+      <Button style={styles.buttonStyle} onPress={this._handlePress.bind(this)}>
         Back to Links
       </Button>
       </View>
     )
   }
 
-  _handlePress(state) {
+  _handlePress(event) {
     this.setState({
-      url: KHE_URL,
+      url: HOME_URL,
     }
   )}
 
-  onNavigationStateChange() {
+  onNavigationStateChange(navState) {
     this.setState({
-      url: HOME_URL
+      url: navState.url,
+      title: navState.title,
+      loading: navState.loading
     })
   }
 }

@@ -70,7 +70,6 @@ var styles = StyleSheet.create({
   },
   webStyle: {
     flex: 1,
-    //marginTop: 10,
     backgroundColor: '#231F20',
     marginBottom: 10
   },
@@ -80,7 +79,6 @@ var styles = StyleSheet.create({
     backgroundColor: '#231F20',
     fontSize: 15,
     textAlign: 'center',
-    //paddingLeft: 20,
     marginBottom: 40
   }
 })

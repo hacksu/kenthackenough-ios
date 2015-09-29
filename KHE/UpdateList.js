@@ -1,12 +1,9 @@
-/**
- * Created by echessa on 4/24/15.
- */
-
 'use strict';
 
 var React = require('react-native');
-var REQUEST_URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
-var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
+
+var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+
 
 var {
     Image,
@@ -56,7 +53,7 @@ var styles = StyleSheet.create({
     }
 });
 
-class ScheduleList extends Component {
+class UpdateList extends Component {
 
     constructor(props) {
         super(props);
@@ -74,11 +71,11 @@ class ScheduleList extends Component {
 
     fetchData() {
 
-        fetch(SCHEDULE_URL)
+        fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.events),
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.messages),
                     isLoading: false
                 });
             })
@@ -93,22 +90,20 @@ class ScheduleList extends Component {
         return (
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderEvent.bind(this)}
+                renderRow={this.renderMessage.bind(this)}
                 style={styles.listView}
                 />
         );
     }
 
-    renderEvent(events) {
+    renderMessage(messages) {
         return (
 
                 <View>
                     <View style={styles.container}>
                         <View style={styles.rightContainer}>
-                            <Text style={styles.title}>{events.title}</Text>
-                            <Text style={styles.title}>{events.start}</Text>
-                            <Text style={styles.title}>{events.end}</Text>
-                            <Text style={styles.title}>{events.description}</Text>
+                            <Text style={styles.title}>{messages.text}</Text>
+
                         </View>
                     </View>
                     <View style={styles.separator} />
@@ -123,15 +118,12 @@ class ScheduleList extends Component {
                 <ActivityIndicatorIOS
                     size='large'/>
                 <Text>
-                    Loading events...
+                    Loading updates...
                 </Text>
             </View>
         );
     }
 
-
-
-
 }
 
-module.exports = ScheduleList;
+module.exports = UpdateList

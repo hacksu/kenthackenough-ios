@@ -3,9 +3,9 @@
 // REQUIREMENTS
 var React = require('react-native');
 var Dash = require('./dash.js');
-var Schedule = require('./schedule.js');
-var Updates = require('./updates.js');
+var UpdateList = require('./UpdateList.js');
 var Links = require('./links.js');
+var ScheduleList = require('./ScheduleList.js');
 
 var {
   AppRegistry,
@@ -77,7 +77,7 @@ class KHE extends Component {
               selectedTab: 'scheduleTab',
             });
           }}>
-        <Schedule />
+        <ScheduleList />
         </TabBarIOS.Item>
 
 
@@ -93,7 +93,7 @@ class KHE extends Component {
               notifCount: this.state.notifCount = 0
             });
           }}>
-        <Updates />
+        <UpdateList />
         </TabBarIOS.Item>
 
 

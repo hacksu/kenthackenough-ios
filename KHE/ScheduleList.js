@@ -6,7 +6,7 @@
 
 var React = require('react-native');
 var REQUEST_URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
-
+var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
 
 var {
     Image,
@@ -76,11 +76,11 @@ class ScheduleList extends Component {
 
     fetchData() {
 
-        fetch(REQUEST_URL)
+        fetch(SCHEDULE_URL)
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.items),
+                    dataSource: this.state.dataSource.cloneWithRows(responseData.events),
                     isLoading: false
                 });
             })
@@ -101,17 +101,14 @@ class ScheduleList extends Component {
         );
     }
 
-    renderBook(book) {
+    renderBook(events) {
         return (
 
                 <View>
                     <View style={styles.container}>
-                        <Image
-                            source={{uri: book.volumeInfo.imageLinks.thumbnail}}
-                            style={styles.thumbnail} />
                         <View style={styles.rightContainer}>
-                            <Text style={styles.title}>{book.volumeInfo.title}</Text>
-                            <Text style={styles.author}>{book.volumeInfo.authors}</Text>
+                            <Text style={styles.title}>{events.title}</Text>
+                            <Text style={styles.author}>{events.description}</Text>
                         </View>
                     </View>
                     <View style={styles.separator} />
@@ -126,7 +123,7 @@ class ScheduleList extends Component {
                 <ActivityIndicatorIOS
                     size='large'/>
                 <Text>
-                    Loading books...
+                    Loading events...
                 </Text>
             </View>
         );

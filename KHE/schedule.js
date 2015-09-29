@@ -33,7 +33,7 @@ class Schedule extends Component {
           <NavigatorIOS
               style={styles.container}
               initialRoute={{
-          title: 'Featured Books',
+          title: 'Schedule',
           component: ScheduleList
       }}/>
       );

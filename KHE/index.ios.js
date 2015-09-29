@@ -11,6 +11,15 @@ var {
   AppRegistry,
   TabBarIOS,
   Component,
+  Text,
+  View,
+  ListView,
+  TouchableOpacity,
+  Image,
+  AlertIndicatorIOS,
+  ActivityIndicatorIOS,
+  AlertIOS,
+  StyleSheet,
   StatusBarIOS
 } = React;
 
@@ -43,6 +52,7 @@ class KHE extends Component {
         //#707070 #231F20
         barTintColor="black">
 
+
         {/* DASH BAR ITEM */}
         <TabBarIOS.Item
           title="Dash"
@@ -51,14 +61,13 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'dashTab',
-              // TODO: RELOAD DASH COMPONENT FOR SCHEDULE/MESSAGE
             });
           }}>
-        {/* INJECT DASH VIEW HERE */}
         <Dash />
         </TabBarIOS.Item>
 
-        {/* SCHEDULE TAB BAR ITEM */}
+
+
         <TabBarIOS.Item
           title="Schedule"
           icon={{uri: CloverBase64Icon, scale: 17}}
@@ -66,14 +75,13 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'scheduleTab',
-              // TODO: SCROLL TO CURRENT TIME ON SCHEDULE
             });
           }}>
-        {/* INJECT SCHEDULE VIEW HERE */}
         <Schedule />
         </TabBarIOS.Item>
 
-        {/* UPDATES TAB BAR ITEM */}
+
+
         <TabBarIOS.Item
           title="Updates"
           icon={{uri: DiamondBase64Icon, scale: 17}}
@@ -82,16 +90,13 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'updatesTab',
-              // TODO: CHECK FOR AND LOAD NEWEST NOTIFICATIONS
-              // CLEAR NOTIFICATION BADGE
               notifCount: this.state.notifCount = 0
             });
           }}>
-        {/* INJECT UPDATES VIEW HERE */}
         <Updates />
         </TabBarIOS.Item>
 
-        {/* LINKS TAB BAR ITEM */}
+
         <TabBarIOS.Item
           title="Links"
           icon={{uri: SpadeBase64Icon, scale: 17}}
@@ -101,9 +106,9 @@ class KHE extends Component {
               selectedTab: 'linksTab',
             });
           }}>
-        {/* INJECT LINKS VIEW HERE */}
         <Links />
         </TabBarIOS.Item>
+
 
       </TabBarIOS>
     );

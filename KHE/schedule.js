@@ -1,44 +1,43 @@
 'use strict';
 
 var React = require('react-native');
+var ScheduleList = require('./ScheduleList.js');
 
 var {
-  StyleSheet,
+  AppRegistry,
+  TabBarIOS,
+  Component,
   Text,
   View,
-  Component,
-  Image
+  ListView,
+  TouchableOpacity,
+  Image,
+  AlertIndicatorIOS,
+  ActivityIndicatorIOS,
+  AlertIOS,
+  StyleSheet,
+  NavigatorIOS,
+  StatusBarIOS
 } = React;
+
+
+var styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+});
 
 class Schedule extends Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Image source={require('./testImage/schedule.png')}
-        style={styles.testImage}>
-        </Image>
-      </View>
-    )
+      return (
+          <NavigatorIOS
+              style={styles.container}
+              initialRoute={{
+          title: 'Featured Books',
+          component: ScheduleList
+      }}/>
+      );
   }
 }
-
-var styles = StyleSheet.create({
-  description: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#FFFFFF'
-  },
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#231F20',
-    paddingVertical: 20
-  },
-  testImage: {
-    flex:1,
-    resizeMode: Image.resizeMode.contain
-  }
-})
 
 module.exports = Schedule

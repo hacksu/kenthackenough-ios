@@ -27,7 +27,7 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#231F20',
-        padding: 10
+        padding: 10,
     },
     thumbnail: {
         width: 53,
@@ -37,22 +37,34 @@ var styles = StyleSheet.create({
     rightContainer: {
         flex: 1
     },
+    header: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        marginBottom: 8,
+        color: 'red'
+    },
     title: {
-        fontSize: 20,
+        fontSize: 13,
         marginBottom: 8,
         color: 'white'
     },
     separator: {
         height: 1,
-        backgroundColor: '#dddddd'
+        backgroundColor: '#231F20'
     },
     listView: {
-        backgroundColor: '#F5FCFF'
+        flex: 1,
+        backgroundColor: '#231F20',
+        marginTop: 20
     },
     loading: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    background: {
+      backgroundColor: '#231F20',
+      flex: 1,
     }
 });
 
@@ -91,29 +103,28 @@ class ScheduleList extends Component {
         }
 
         return (
+          <View style={styles.background}>
             <ListView
                 dataSource={this.state.dataSource}
                 renderRow={this.renderEvent.bind(this)}
                 style={styles.listView}
                 />
+          </View>
         );
     }
 
     renderEvent(events) {
         return (
-
-                <View>
-                    <View style={styles.container}>
+                <View style={styles.container}>
                         <View style={styles.rightContainer}>
-                            <Text style={styles.title}>{events.title}</Text>
+                            <Text style={styles.header}>{events.title}</Text>
+                            <Text style={styles.title}>{events.location}</Text>
                             <Text style={styles.title}>{events.start}</Text>
                             <Text style={styles.title}>{events.end}</Text>
                             <Text style={styles.title}>{events.description}</Text>
                         </View>
-                    </View>
                     <View style={styles.separator} />
                 </View>
-
         );
     }
 
@@ -128,10 +139,6 @@ class ScheduleList extends Component {
             </View>
         );
     }
-
-
-
-
 }
 
 module.exports = ScheduleList;

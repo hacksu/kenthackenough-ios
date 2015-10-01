@@ -1,11 +1,13 @@
 {
   "name": "KHE",
   "version": "0.0.1",
+  "author": "Jake Tobin",
   "private": true,
   "scripts": {
     "start": "node_modules/react-native/packager/packager.sh"
   },
   "dependencies": {
+    "moment": "^2.10.6",
     "react-native": "^0.11.0",
     "react-native-button": "^1.2.1",
     "react-native-scrollable-tab-view": "^0.1.10"

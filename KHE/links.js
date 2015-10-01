@@ -10,7 +10,8 @@ var {
   Text,
   View,
   Component,
-  WebView
+  WebView,
+  ActivityIndicatorIOS
 } = React;
 
 class Links extends Component {
@@ -26,12 +27,16 @@ class Links extends Component {
   webviewRenderError
 
   render() {
+    if (this.state.loading) {
+        return this.renderLoadingView();
+    }
 
     return (
       <View style={styles.container}>
       <WebView
         style={styles.webStyle}
         url={this.state.url}
+        startInLoadingState={true}
         onNavigationStateChange={this.onNavigationStateChange.bind(this)}
       />
       <Button style={styles.buttonStyle} onPress={this._handlePress.bind(this)}>
@@ -39,6 +44,18 @@ class Links extends Component {
       </Button>
       </View>
     )
+  }
+
+  renderLoadingView() {
+      return (
+          <View style={styles.loading}>
+              <ActivityIndicatorIOS
+                  size='large'/>
+              <Text>
+                  Loading links...
+              </Text>
+          </View>
+      );
   }
 
   _handlePress(event) {
@@ -66,7 +83,7 @@ var styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#231F20',
     flexDirection: 'column',
-    paddingVertical: 20
+    paddingVertical: 20,
   },
   webStyle: {
     flex: 1,

@@ -6,6 +6,7 @@
 
 var React = require('react-native');
 var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
+var moment = require('moment');
 
 var {
     Image,
@@ -79,6 +80,7 @@ class ScheduleList extends Component {
         };
     }
 
+
     componentDidMount() {
         this.fetchData();
     }
@@ -113,13 +115,16 @@ class ScheduleList extends Component {
     }
 
     renderEvent(events) {
+        var startTime = moment(events.start).format('lll');
+        var endTime = moment(events.end).format('lll');
+
         return (
                 <View style={styles.container}>
                         <View style={styles.rightContainer}>
                             <Text style={styles.header}>{events.title}</Text>
                             <Text style={styles.title}>{events.location}</Text>
-                            <Text style={styles.title}>{events.start}</Text>
-                            <Text style={styles.title}>{events.end}</Text>
+                            <Text style={styles.title}>{startTime}</Text>
+                            <Text style={styles.title}>{endTime}</Text>
                             <Text style={styles.title}>{events.description}</Text>
                         </View>
                     <View style={styles.separator} />

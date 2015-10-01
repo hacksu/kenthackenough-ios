@@ -143,7 +143,7 @@ var styles = StyleSheet.create({
   },
   updatesDashBox: {
     flex: 1,
-    fontSize: 13,
+    fontSize: 15,
     backgroundColor: '#231F20',
     height: 100,
     width: 250,
@@ -153,7 +153,7 @@ var styles = StyleSheet.create({
   },
   scheduleDashBox: {
     flex: 1,
-    fontSize: 13,
+    fontSize: 15,
     backgroundColor: '#231F20',
     height: 100,
     width: 250,
@@ -164,11 +164,11 @@ var styles = StyleSheet.create({
   },
   dashHeader: {
     marginTop: 40,
-    fontSize: 13,
-    backgroundColor: 'black',
+    fontSize: 18,
+    backgroundColor: '#231F20',
     width: 250,
     textAlign: 'center',
-    color: 'white',
+    color: 'red',
     fontWeight: 'bold'
   },
   container: {

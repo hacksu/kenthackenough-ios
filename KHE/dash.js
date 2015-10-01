@@ -24,8 +24,8 @@ class Dash extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      newUpdate: 'This is a new update with lots of text that hopefully wraps when it hits the end of the text box width',
-      nextEvent: 'This is the next event',
+      // newUpdate: 'This is a new update with lots of text that hopefully wraps when it hits the end of the text box width',
+      // nextEvent: 'This is the next event',
       isLoading: true,
       dataSourceMessages: new ListView.DataSource({
           rowHasChanged: (row1, row2) => row1 !== row2
@@ -45,7 +45,7 @@ class Dash extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 this.setState({
-                    dataSourceMessages: this.state.dataSourceMessages.cloneWithRows(responseData.messages),
+                    dataSourceMessages: responseData.messages[0].text,
                     isLoading: false
                 });
             })
@@ -54,7 +54,7 @@ class Dash extends Component {
               .then((response) => response.json())
               .then((responseData) => {
                   this.setState({
-                      dataSourceSchedule: this.state.dataSourceSchedule.cloneWithRows(responseData.events),
+                      dataSourceSchedule: responseData.events[0].title,
                       isLoading: false
                   });
               })
@@ -62,40 +62,72 @@ class Dash extends Component {
     }
 
   render() {
+    var events = this.state.dataSourceSchedule;
+    var update = this.state.dataSourceMessages;
+    // console.log(events);
+    // console.log(update);
+
     if (this.state.isLoading) {
         return this.renderLoadingView();
+    }else {
+        return this.renderLoaded(events , update);
     }
 
-
-    return (
-      <View style={styles.container}>
-        <Image source={require('./testImage/shortLogo.png')}
-        style={styles.logoImage}>
-        </Image>
-
-
-
-        <Text style={styles.dashHeader}>Latest Update!</Text>
-        <Text style={styles.updatesDashBox}>
-        {this.state.newUpdate}
-        </Text>
-
-        <Text style={styles.dashHeader}>Next Event!</Text>
-        <Text style={styles.scheduleDashBox}>
-        {this.state.nextEvent}
-        </Text>
-      </View>
-    )
   }
+
+  renderLoaded(events , update) {
+      return (
+        <View style={styles.container}>
+          <Image source={require('./testImage/shortLogo.png')}
+          style={styles.logoImage}>
+          </Image>
+
+
+
+          <Text style={styles.dashHeader}>Latest Update!</Text>
+          <Text style={styles.updatesDashBox}>
+          {update}
+          </Text>
+
+          <Text style={styles.dashHeader}>Next Event!</Text>
+          <Text style={styles.scheduleDashBox}>
+          {events}
+          </Text>
+        </View>
+      );
+  }
+
   renderLoadingView() {
       return (
+        <View style={styles.container}>
+          <Image source={require('./testImage/shortLogo.png')}
+          style={styles.logoImage}>
+          </Image>
+
+
+
+          <Text style={styles.dashHeader}>Latest Update!</Text>
+
           <View style={styles.loading}>
               <ActivityIndicatorIOS
                   size='large'/>
               <Text>
-                  Loading updates...
+                  Loading Updates...
               </Text>
           </View>
+
+
+          <Text style={styles.dashHeader}>Next Event!</Text>
+
+          <View style={styles.loading}>
+              <ActivityIndicatorIOS
+                  size='large'/>
+              <Text>
+                  Loading Events...
+              </Text>
+          </View>
+
+        </View>
       );
   }
 }

@@ -36,8 +36,6 @@ class KHE extends Component {
     super(props);
     this.state = {
       selectedTab: 'dashTab',
-      // TODO: CHECK FOR NEW UPDATES AND ADJUST notifCount
-      notifCount: 5
     };
   }
 
@@ -61,6 +59,7 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'dashTab',
+              isLoading: true
             });
           }}>
         <Dash />
@@ -75,6 +74,7 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'scheduleTab',
+              isLoading: true
             });
           }}>
         <ScheduleList />
@@ -90,6 +90,7 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'updatesTab',
+              isLoading: true,
               notifCount: this.state.notifCount = 0
             });
           }}>
@@ -104,6 +105,7 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'linksTab',
+              isLoading: true
             });
           }}>
         <Links />

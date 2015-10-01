@@ -2,8 +2,12 @@
 
 var React = require('react-native');
 
-var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
-
+// production
+//var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+// development
+//var MESSEGES_URL = 'http://api.khe.pdilyard.com/v1.0/messages'
+// local
+var MESSEGES_URL = 'http://localhost:3000/db'
 
 var {
     Image,

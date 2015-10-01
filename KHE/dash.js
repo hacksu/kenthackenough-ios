@@ -2,24 +2,71 @@
 
 var React = require('react-native');
 
+
 var {
-  StyleSheet,
-  Text,
-  View,
-  Component,
-  Image,
-} = React;
+    Image,
+    StyleSheet,
+    Text,
+    View,
+    Component,
+    ListView,
+    TouchableHighlight,
+    NavigatorIOS,
+    ActivityIndicatorIOS
+    } = React;
+
+
+var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
+var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+
 
 class Dash extends Component {
   constructor(props) {
     super(props);
     this.state = {
       newUpdate: 'This is a new update with lots of text that hopefully wraps when it hits the end of the text box width',
-      nextEvent: 'This is the next event'
+      nextEvent: 'This is the next event',
+      isLoading: true,
+      dataSourceMessages: new ListView.DataSource({
+          rowHasChanged: (row1, row2) => row1 !== row2
+        }),
+      dataSourceSchedule: new ListView.DataSource({
+          rowHasChanged: (row1, row2) => row1 !== row2
+        })
+      };
     }
-  }
+
+    componentDidMount() {
+        this.fetchData();
+    }
+
+    fetchData() {
+        fetch(MESSEGES_URL)
+            .then((response) => response.json())
+            .then((responseData) => {
+                this.setState({
+                    dataSourceMessages: this.state.dataSourceMessages.cloneWithRows(responseData.messages),
+                    isLoading: false
+                });
+            })
+            .done();
+          fetch(SCHEDULE_URL)
+              .then((response) => response.json())
+              .then((responseData) => {
+                  this.setState({
+                      dataSourceSchedule: this.state.dataSourceSchedule.cloneWithRows(responseData.events),
+                      isLoading: false
+                  });
+              })
+              .done();
+    }
 
   render() {
+    if (this.state.isLoading) {
+        return this.renderLoadingView();
+    }
+
+
     return (
       <View style={styles.container}>
         <Image source={require('./testImage/shortLogo.png')}
@@ -39,6 +86,17 @@ class Dash extends Component {
         </Text>
       </View>
     )
+  }
+  renderLoadingView() {
+      return (
+          <View style={styles.loading}>
+              <ActivityIndicatorIOS
+                  size='large'/>
+              <Text>
+                  Loading updates...
+              </Text>
+          </View>
+      );
   }
 }
 
@@ -95,6 +153,11 @@ var styles = StyleSheet.create({
     marginTop: 40,
     resizeMode: Image.resizeMode.contain,
     position: 'relative',
+  },
+  loading: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
   }
 })
 

@@ -5,12 +5,18 @@
 'use strict';
 
 var React = require('react-native');
+
 var {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View,
-} = React;
+    Image,
+    StyleSheet,
+    Text,
+    View,
+    Component,
+    ListView,
+    TouchableHighlight,
+    NavigatorIOS,
+    ActivityIndicatorIOS
+    } = React;
 
 var KHE = React.createClass({
   render: function() {

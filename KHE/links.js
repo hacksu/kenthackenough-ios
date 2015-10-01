@@ -3,7 +3,7 @@
 var React = require('react-native');
 var Button = require('react-native-button');
 
-var HOME_URL = "http://www.google.com"
+var HOME_URL = "https://khe.io/info"
 
 var {
   StyleSheet,

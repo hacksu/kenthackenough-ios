@@ -62,7 +62,7 @@ class KHE extends Component {
               isLoading: true
             });
           }}>
-        <Dash />
+        <Dash isLoading={this.state.isLoading} />
         </TabBarIOS.Item>
 
 
@@ -94,7 +94,7 @@ class KHE extends Component {
               notifCount: this.state.notifCount = 0
             });
           }}>
-        <UpdateList />
+        <UpdateList true={this.state.isLoading} />
         </TabBarIOS.Item>
 
 

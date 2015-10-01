@@ -32,6 +32,7 @@
    */
 
   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle"];
+  
 
   /**
    * OPTION 2
@@ -39,11 +40,12 @@
    * from the root of your project directory, run
    *
    * $ react-native bundle --minify
+   * curl http://localhost:8081/index.ios.bundle\?dev\=0 -o main.jsbundle
    *
    * see http://facebook.github.io/react-native/docs/runningondevice.html
    */
 
-//   jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
+   //jsCodeLocation = [[NSBundle mainBundle] URLForResource:@"main" withExtension:@"jsbundle"];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"KHE"

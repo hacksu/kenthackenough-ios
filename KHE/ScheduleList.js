@@ -5,7 +5,6 @@
 'use strict';
 
 var React = require('react-native');
-var REQUEST_URL = 'https://www.googleapis.com/books/v1/volumes?q=subject:fiction';
 var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
 
 var {

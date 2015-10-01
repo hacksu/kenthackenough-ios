@@ -24,12 +24,8 @@ class Links extends Component {
     })
   }
 
-  webviewRenderError
 
   render() {
-    if (this.state.loading) {
-        return this.renderLoadingView();
-    }
 
     return (
       <View style={styles.container}>
@@ -46,17 +42,6 @@ class Links extends Component {
     )
   }
 
-  renderLoadingView() {
-      return (
-          <View style={styles.loading}>
-              <ActivityIndicatorIOS
-                  size='large'/>
-              <Text>
-                  Loading links...
-              </Text>
-          </View>
-      );
-  }
 
   _handlePress(event) {
     this.setState({

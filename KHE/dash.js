@@ -113,7 +113,7 @@ class Dash extends Component {
 
           <View style={styles.loading}>
               <ActivityIndicatorIOS
-                  size='large'/>
+                  size='small'/>
               <Text style={styles.loadingText}>
                   Loading Updates...
               </Text>
@@ -124,7 +124,7 @@ class Dash extends Component {
 
           <View style={styles.loading}>
               <ActivityIndicatorIOS
-                  size='large'/>
+                  size='small'/>
               <Text style={styles.loadingText}>
                   Loading Events...
               </Text>

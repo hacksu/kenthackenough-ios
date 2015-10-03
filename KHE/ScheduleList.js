@@ -65,7 +65,14 @@ var styles = StyleSheet.create({
     background: {
       backgroundColor: '#231F20',
       flex: 1,
-    }
+    },
+    loading: {
+        flex: 1,
+        alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: '#231F20',
+    },
 });
 
 class ScheduleList extends Component {
@@ -116,15 +123,15 @@ class ScheduleList extends Component {
 
     renderEvent(events) {
         var startTime = moment(events.start).format('lll');
-        var endTime = moment(events.end).format('lll');
+        var endTime = moment(events.end).format('h A');
 
         return (
                 <View style={styles.container}>
                         <View style={styles.rightContainer}>
                             <Text style={styles.header}>{events.title}</Text>
                             <Text style={styles.title}>{events.location}</Text>
-                            <Text style={styles.title}>{startTime}</Text>
-                            <Text style={styles.title}>{endTime}</Text>
+                            <Text style={styles.title}>{startTime} - {endTime}</Text>
+
                             <Text style={styles.title}>{events.description}</Text>
                         </View>
                     <View style={styles.separator} />
@@ -134,13 +141,11 @@ class ScheduleList extends Component {
 
     renderLoadingView() {
         return (
-            <View style={styles.loading}>
-                <ActivityIndicatorIOS
-                    size='large'/>
-                <Text>
-                    Loading events...
-                </Text>
-            </View>
+
+          <View style={styles.loading}>
+              <ActivityIndicatorIOS
+                  size='large'/>
+          </View>
         );
     }
 }

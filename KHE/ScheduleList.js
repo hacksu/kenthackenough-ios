@@ -5,7 +5,7 @@
 'use strict';
 
 var React = require('react-native');
-var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
+var SCHEDULE_URL = 'https://api.khe.io/v1.0/events?icons=true';
 var moment = require('moment');
 
 var {

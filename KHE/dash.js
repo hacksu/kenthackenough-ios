@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var moment = require('moment');
 
 
 var {
@@ -55,6 +56,7 @@ class Dash extends Component {
               .then((responseData) => {
                   this.setState({
                       dataSourceSchedule: responseData.events[0].title,
+                      dataSourceScheduleTime: responseData.events[0].start,
                       isLoading: false
                   });
               })
@@ -64,18 +66,19 @@ class Dash extends Component {
   render() {
     var events = this.state.dataSourceSchedule;
     var update = this.state.dataSourceMessages;
+    var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
     // console.log(events);
     // console.log(update);
 
     if (this.state.isLoading) {
         return this.renderLoadingView();
     }else {
-        return this.renderLoaded(events , update);
+        return this.renderLoaded(events , update , startTime);
     }
 
   }
 
-  renderLoaded(events , update) {
+  renderLoaded(events , update, startTime) {
       return (
         <View style={styles.container}>
           <Image source={require('./testImage/shortLogo.png')}
@@ -91,7 +94,7 @@ class Dash extends Component {
 
           <Text style={styles.dashHeader}>Next Event!</Text>
           <Text style={styles.scheduleDashBox}>
-          {events}
+          {events} at {startTime}
           </Text>
         </View>
       );
@@ -147,7 +150,7 @@ var styles = StyleSheet.create({
     backgroundColor: '#231F20',
     height: 100,
     width: 250,
-    textAlign: 'left',
+    textAlign: 'center',
     color: 'white',
     position: 'relative',
   },
@@ -158,13 +161,14 @@ var styles = StyleSheet.create({
     height: 100,
     width: 250,
     marginBottom: 80,
-    textAlign: 'left',
+    textAlign: 'center',
     color: 'white',
     position: 'relative',
   },
   dashHeader: {
     marginTop: 40,
-    fontSize: 18,
+    fontSize: 20,
+    paddingBottom: 3,
     backgroundColor: '#231F20',
     width: 250,
     textAlign: 'center',

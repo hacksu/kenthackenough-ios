@@ -114,7 +114,7 @@ class Dash extends Component {
           <View style={styles.loading}>
               <ActivityIndicatorIOS
                   size='large'/>
-              <Text>
+              <Text style={styles.loadingText}>
                   Loading Updates...
               </Text>
           </View>
@@ -125,7 +125,7 @@ class Dash extends Component {
           <View style={styles.loading}>
               <ActivityIndicatorIOS
                   size='large'/>
-              <Text>
+              <Text style={styles.loadingText}>
                   Loading Events...
               </Text>
           </View>
@@ -190,10 +190,17 @@ var styles = StyleSheet.create({
     resizeMode: Image.resizeMode.contain,
     position: 'relative',
   },
+  loadingText: {
+    flex: 1,
+    fontSize: 14.5,
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
   loading: {
       flex: 1,
       alignItems: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      backgroundColor: '#231F20',
   }
 })
 

@@ -53,7 +53,7 @@ class KHE extends Component {
 
         {/* DASH BAR ITEM */}
         <TabBarIOS.Item
-          title="Dash"
+          title="Home"
           icon={{uri: HeartBase64Icon, scale: 17}}
           selected={this.state.selectedTab === 'dashTab'}
           onPress={() => {

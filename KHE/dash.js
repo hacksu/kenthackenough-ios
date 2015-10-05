@@ -145,8 +145,8 @@ var styles = StyleSheet.create({
     color: '#FFFFFF'
   },
   updatesDashBox: {
-    flex: 1,
-    fontSize: 15,
+    flex: .5,
+    fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
     width: 250,
@@ -156,24 +156,25 @@ var styles = StyleSheet.create({
   },
   scheduleDashBox: {
     flex: 1,
-    fontSize: 15,
+    fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
     width: 250,
-    marginBottom: 80,
+    marginBottom: 10,
     textAlign: 'center',
     color: 'white',
     position: 'relative',
   },
   dashHeader: {
     marginTop: 40,
-    fontSize: 20,
+    fontSize: 22,
     paddingBottom: 3,
     backgroundColor: '#231F20',
     width: 250,
     textAlign: 'center',
     color: 'red',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+
   },
   container: {
     flex: 1,
@@ -183,16 +184,16 @@ var styles = StyleSheet.create({
     paddingVertical: 20,
   },
   logoImage: {
-    flex: 1,
+    flex: 1.5,
     width: 250,
     height: 100,
-    marginTop: 40,
+    marginTop: 80,
     resizeMode: Image.resizeMode.contain,
     position: 'relative',
   },
   loadingText: {
     flex: 1,
-    fontSize: 14.5,
+    fontSize: 16,
     textAlign: 'center',
     color: '#FFFFFF',
   },

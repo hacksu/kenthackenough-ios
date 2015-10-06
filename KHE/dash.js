@@ -78,17 +78,26 @@ class Dash extends Component {
     var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
     // console.log(events);
     // console.log(update);
-    console.log(Device.width);
+    //console.log(Device.width);
 
     if (this.state.isLoading) {
-        return this.renderLoadingView();
+      if(Device.width === iphone4swidth){
+        return this.renderLoadingViewiPhone4();
+      }else {
+        return this.renderLoadingViewiPhone6();
+      }
     }else {
-        return this.renderLoaded(events , update , startTime, timeAgo);
+      if(Device.width === iphone4swidth){
+        return this.renderLoadediPhone4(events , update , startTime, timeAgo);
+      }else {
+        return this.renderLoadediPhone6(events , update , startTime, timeAgo);
+      }
+
     }
 
   }
 
-  renderLoaded(events , update, startTime, timeAgo) {
+  renderLoadediPhone6(events , update, startTime, timeAgo) {
 
       return (
         <View style={styles.container}>
@@ -98,45 +107,39 @@ class Dash extends Component {
 
 
 
-          <Text style={styles.dashHeader}>Latest Update</Text>
-          <Text style={styles.updatesDashBox}>
-          {update}    <Text style={styles.time}>-{timeAgo}</Text>
+          <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
+          <Text style={styles.updatesDashBoxiPhone6}>
+          {update}    <Text style={styles.timeiPhone6}>-{timeAgo}</Text>
           </Text>
 
-          <Text style={styles.dashHeader}>Next Event</Text>
-          <Text style={styles.scheduleDashBox}>
+          <Text style={styles.dashHeaderiPhone6}>Next Event</Text>
+          <Text style={styles.scheduleDashBoxiPhone6}>
           {events} at {startTime}
           </Text>
         </View>
       );
   }
 
-  renderLoadingView() {
+  renderLoadingViewiPhone6() {
       return (
         <View style={styles.container}>
           <Image source={require('./testImage/shortLogo.png')}
           style={styles.logoImage}>
           </Image>
-
-
-
-          <Text style={styles.dashHeader}>Latest Update</Text>
-
-          <View style={styles.loading}>
+          <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
+          <View style={styles.loadingiPhone6}>
               <ActivityIndicatorIOS
                   size='small'/>
-              <Text style={styles.loadingText}>
+              <Text style={styles.loadingTextiPhone6}>
                   Loading Updates...
               </Text>
           </View>
 
-
-          <Text style={styles.dashHeader}>Next Event</Text>
-
-          <View style={styles.loading}>
+          <Text style={styles.dashHeaderiPhone6}>Next Event</Text>
+          <View style={styles.loadingiPhone6}>
               <ActivityIndicatorIOS
                   size='small'/>
-              <Text style={styles.loadingText}>
+              <Text style={styles.loadingTextiPhone6}>
                   Loading Events...
               </Text>
           </View>
@@ -144,6 +147,68 @@ class Dash extends Component {
         </View>
       );
   }
+
+
+
+  renderLoadediPhone4(events , update, startTime, timeAgo) {
+
+      return (
+        <View style={styles.container}>
+          <Image source={require('./testImage/shortLogo.png')}
+          style={styles.logoImage}>
+          </Image>
+
+
+
+          <Text style={styles.dashHeaderiPhone4}>Latest Update</Text>
+          <Text style={styles.updatesDashBoxiPhone4}>
+          {update}    <Text style={styles.timeiPhone4}>-{timeAgo}</Text>
+          </Text>
+
+          <Text style={styles.dashHeaderiPhone4}>Next Event</Text>
+          <Text style={styles.scheduleDashBoxiPhone4}>
+          {events} at {startTime}
+          </Text>
+        </View>
+      );
+  }
+
+  renderLoadingViewiPhone4() {
+      return (
+        <View style={styles.container}>
+          <Image source={require('./testImage/shortLogo.png')}
+          style={styles.logoImage}>
+          </Image>
+
+
+
+          <Text style={styles.dashHeaderiPhone4}>Latest Update</Text>
+
+          <View style={styles.loadingiPhone4}>
+              <ActivityIndicatorIOS
+                  size='small'/>
+              <Text style={styles.loadingTextiPhone4}>
+                  Loading Updates...
+              </Text>
+          </View>
+
+
+          <Text style={styles.dashHeaderiPhone4}>Next Event</Text>
+
+          <View style={styles.loadingiPhone4}>
+              <ActivityIndicatorIOS
+                  size='small'/>
+              <Text style={styles.loadingTextiPhone4}>
+                  Loading Events...
+              </Text>
+          </View>
+
+        </View>
+      );
+  }
+
+
+
 }
 
 var styles = StyleSheet.create({
@@ -155,7 +220,7 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     color: '#FFFFFF'
   },
-  updatesDashBox: {
+  updatesDashBoxiPhone6: {
     flex: .5,
     fontSize: 16,
     backgroundColor: '#222222',
@@ -165,7 +230,7 @@ var styles = StyleSheet.create({
     color: 'white',
     position: 'relative',
   },
-  scheduleDashBox: {
+  scheduleDashBoxiPhone6: {
     flex: 1,
     fontSize: 16,
     backgroundColor: '#222222',
@@ -176,7 +241,7 @@ var styles = StyleSheet.create({
     color: 'white',
     position: 'relative',
   },
-  dashHeader: {
+  dashHeaderiPhone6: {
     marginTop: 40,
     fontSize: 22,
     paddingBottom: 3,
@@ -202,20 +267,69 @@ var styles = StyleSheet.create({
     resizeMode: Image.resizeMode.contain,
     position: 'relative',
   },
-  loadingText: {
+  loadingTextiPhone6: {
     flex: 1,
     fontSize: 16,
     textAlign: 'center',
     color: '#FFFFFF',
   },
-  loading: {
+  loadingiPhone6: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#222222',
   },
-  time: {
+  timeiPhone6: {
       fontSize: 13,
+      marginBottom: 8,
+      marginTop: 8,
+      color: '#A6A6A6'
+  },
+  updatesDashBoxiPhone4: {
+    flex: .5,
+    fontSize: 12,
+    backgroundColor: '#222222',
+    height: 100,
+    width: 250,
+    textAlign: 'left',
+    color: 'white',
+    position: 'relative',
+  },
+  scheduleDashBoxiPhone4: {
+    flex: 1,
+    fontSize: 12,
+    backgroundColor: '#222222',
+    height: 100,
+    width: 250,
+    marginBottom: 10,
+    textAlign: 'left',
+    color: 'white',
+    position: 'relative',
+  },
+  dashHeaderiPhone4: {
+    marginTop: 40,
+    fontSize: 15,
+    paddingBottom: 3,
+    backgroundColor: '#222222',
+    width: 250,
+    textAlign: 'left',
+    color: 'red',
+    fontWeight: 'bold',
+  },
+  loadingTextiPhone4: {
+    flex: 1,
+    fontSize: 12,
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
+  loadingiPhone4: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#222222',
+  },
+  timeiPhone4: {
+      fontSize: 10,
       marginBottom: 8,
       marginTop: 8,
       color: '#A6A6A6'

@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var moment = require('moment');
 
 // production
 var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
@@ -25,14 +26,20 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        //backgroundColor: '#231F20',
-        backgroundColor: '#141414',
-        padding: 10
+        backgroundColor: '#231F20',
+        //backgroundColor: '#141414',
+        padding: 20
     },
     thumbnail: {
         width: 53,
         height: 81,
         marginRight: 10
+    },
+    time: {
+        fontSize: 15,
+        marginBottom: 8,
+        marginTop: 10,
+        color: '#999999'
     },
     rightContainer: {
         flex: 1
@@ -43,10 +50,8 @@ var styles = StyleSheet.create({
         color: 'white'
     },
     separator: {
-        //height: 1,
-        //backgroundColor: '#dddddd'
-        //backgroundColor: 'red'
-        //backgroundColor: '#141414'
+        height: 1,
+        backgroundColor: '#333333'
     },
     listView: {
         flex: 1,
@@ -110,6 +115,8 @@ class UpdateList extends Component {
     }
 
     renderMessage(messages) {
+        let timeAgo = moment(messages.created).fromNow();
+
         return (
 
                 <View>
@@ -117,7 +124,7 @@ class UpdateList extends Component {
                     <View style={styles.container}>
                         <View style={styles.rightContainer}>
                             <Text style={styles.title}>{messages.text}</Text>
-
+                            <Text style={styles.time}>{timeAgo}</Text>
                         </View>
                     </View>
                     <View style={styles.separator} />

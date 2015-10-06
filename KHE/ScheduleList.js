@@ -92,9 +92,6 @@ var styles = StyleSheet.create({
       width: 10,
       height: 15,
     },
-    eventHeader: {
-
-    }
 });
 
 class ScheduleList extends Component {
@@ -154,7 +151,7 @@ class ScheduleList extends Component {
           return (
             <View style={styles.container}>
                 <View style={styles.rightContainer}>
-                    <View style={styles.eventHeader}>
+                    <View>
                       <Image
                         source={{uri: events.iconUrls.large.white}}
                         style={styles.thumbnail}

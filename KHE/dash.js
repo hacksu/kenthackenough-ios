@@ -47,6 +47,7 @@ class Dash extends Component {
             .then((responseData) => {
                 this.setState({
                     dataSourceMessages: responseData.messages[0].text,
+                    dataSourceMessagesTime: responseData.messages[0].created,
                     isLoading: false
                 });
             })
@@ -66,6 +67,7 @@ class Dash extends Component {
   render() {
     var events = this.state.dataSourceSchedule;
     var update = this.state.dataSourceMessages;
+    var timeAgo = moment(this.state.dataSourceMessagesTime).fromNow();
     var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
     // console.log(events);
     // console.log(update);
@@ -73,12 +75,13 @@ class Dash extends Component {
     if (this.state.isLoading) {
         return this.renderLoadingView();
     }else {
-        return this.renderLoaded(events , update , startTime);
+        return this.renderLoaded(events , update , startTime, timeAgo);
     }
 
   }
 
-  renderLoaded(events , update, startTime) {
+  renderLoaded(events , update, startTime, timeAgo) {
+
       return (
         <View style={styles.container}>
           <Image source={require('./testImage/shortLogo.png')}
@@ -89,7 +92,7 @@ class Dash extends Component {
 
           <Text style={styles.dashHeader}>Latest Update</Text>
           <Text style={styles.updatesDashBox}>
-          {update}
+          {update}    <Text style={styles.time}>-{timeAgo}</Text>
           </Text>
 
           <Text style={styles.dashHeader}>Next Event</Text>
@@ -202,7 +205,13 @@ var styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#222222',
-  }
+  },
+  time: {
+      fontSize: 13,
+      marginBottom: 8,
+      marginTop: 8,
+      color: '#A6A6A6'
+  },
 })
 
 module.exports = Dash

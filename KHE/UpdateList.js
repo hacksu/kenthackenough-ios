@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var Markdown = require('react-native-markdown');
 var moment = require('moment');
 
 // production
@@ -27,19 +28,12 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#231F20',
-        //backgroundColor: '#141414',
         padding: 20
     },
     thumbnail: {
         width: 53,
         height: 81,
         marginRight: 10
-    },
-    time: {
-        fontSize: 15,
-        marginBottom: 8,
-        marginTop: 10,
-        color: '#999999'
     },
     rightContainer: {
         flex: 1
@@ -49,9 +43,15 @@ var styles = StyleSheet.create({
         marginBottom: 8,
         color: 'white'
     },
+    time: {
+        fontSize: 13,
+        marginBottom: 8,
+        marginTop: 8,
+        color: '#A6A6A6'
+    },
     separator: {
         height: 1,
-        backgroundColor: '#333333'
+        backgroundColor: '#333333',
     },
     listView: {
         flex: 1,
@@ -66,6 +66,13 @@ var styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    }
+});
+
+var mdStyles = StyleSheet.create({
+    text: {
+        color: 'white',
+        fontSize: 16,
     }
 });
 
@@ -115,15 +122,15 @@ class UpdateList extends Component {
     }
 
     renderMessage(messages) {
-        let timeAgo = moment(messages.created).fromNow();
-
+        var timeAgo = moment(messages.created).fromNow();
         return (
 
                 <View>
-                    <View style={styles.separator} />
                     <View style={styles.container}>
                         <View style={styles.rightContainer}>
-                            <Text style={styles.title}>{messages.text}</Text>
+                            <Markdown style={mdStyles}>
+                                {messages.text}
+                            </Markdown>
                             <Text style={styles.time}>{timeAgo}</Text>
                         </View>
                     </View>

@@ -109,7 +109,7 @@ class Dash extends Component {
 
 
 
-          <Text style={styles.dashHeader}>Latest Update!</Text>
+          <Text style={styles.dashHeader}>Latest Update</Text>
 
           <View style={styles.loading}>
               <ActivityIndicatorIOS
@@ -120,7 +120,7 @@ class Dash extends Component {
           </View>
 
 
-          <Text style={styles.dashHeader}>Next Event!</Text>
+          <Text style={styles.dashHeader}>Next Event</Text>
 
           <View style={styles.loading}>
               <ActivityIndicatorIOS
@@ -149,7 +149,7 @@ var styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
-    width: 330,
+    width: 250,
     textAlign: 'left',
     color: 'white',
     position: 'relative',
@@ -159,7 +159,7 @@ var styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
-    width: 330,
+    width: 250,
     marginBottom: 10,
     textAlign: 'left',
     color: 'white',
@@ -170,10 +170,11 @@ var styles = StyleSheet.create({
     fontSize: 22,
     paddingBottom: 3,
     backgroundColor: '#231F20',
-    width: 330,
+    width: 250,
     textAlign: 'left',
     color: 'red',
     fontWeight: 'bold',
+
   },
   container: {
     flex: 1,

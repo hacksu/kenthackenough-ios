@@ -20,6 +20,11 @@ var {
 var SCHEDULE_URL = 'https://api.khe.io/v1.0/events';
 var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
 
+var Device = require('react-native-device');
+
+var iphone4swidth = 320;
+var iphone6width = 375;
+
 
 class Dash extends Component {
   constructor(props) {
@@ -64,6 +69,8 @@ class Dash extends Component {
               .done();
     }
 
+
+
   render() {
     var events = this.state.dataSourceSchedule;
     var update = this.state.dataSourceMessages;
@@ -71,6 +78,7 @@ class Dash extends Component {
     var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
     // console.log(events);
     // console.log(update);
+    console.log(Device.width);
 
     if (this.state.isLoading) {
         return this.renderLoadingView();

@@ -1,9 +1,11 @@
 'use strict';
 
 var React = require('react-native');
+var Markdown = require('react-native-markdown');
+var moment = require('moment');
 
 // production
-var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+var MESSEGES_URL = 'http://api.khe.pdilyard.com/v1.0/messages';
 // local
 //var MESSEGES_URL = 'http://localhost:3000/db'
 
@@ -25,9 +27,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        //backgroundColor: '#231F20',
-        backgroundColor: '#141414',
-        padding: 10
+        padding: 20
     },
     thumbnail: {
         width: 53,
@@ -42,11 +42,15 @@ var styles = StyleSheet.create({
         marginBottom: 8,
         color: 'white'
     },
+    time: {
+        fontSize: 13,
+        marginBottom: 8,
+        marginTop: 8,
+        color: '#A6A6A6'
+    },
     separator: {
-        //height: 1,
-        //backgroundColor: '#dddddd'
-        //backgroundColor: 'red'
-        //backgroundColor: '#141414'
+        height: 1,
+        backgroundColor: '#333333',
     },
     listView: {
         flex: 1,
@@ -61,6 +65,13 @@ var styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    }
+});
+
+var mdStyles = StyleSheet.create({
+    text: {
+        color: 'white',
+        fontSize: 16,
     }
 });
 
@@ -110,14 +121,16 @@ class UpdateList extends Component {
     }
 
     renderMessage(messages) {
+        var timeAgo = moment(messages.created).fromNow();
         return (
 
                 <View>
-                    <View style={styles.separator} />
                     <View style={styles.container}>
                         <View style={styles.rightContainer}>
-                            <Text style={styles.title}>{messages.text}</Text>
-
+                            <Markdown style={mdStyles}>
+                                {messages.text}
+                            </Markdown>
+                            <Text style={styles.time}>{timeAgo}</Text>
                         </View>
                     </View>
                     <View style={styles.separator} />

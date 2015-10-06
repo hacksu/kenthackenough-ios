@@ -109,8 +109,9 @@ class Dash extends Component {
 
           <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
           <Text style={styles.updatesDashBoxiPhone6}>
-          {update}    <Text style={styles.timeiPhone6}>-{timeAgo}</Text>
+            {update}
           </Text>
+          <Text style={styles.timeiPhone6}>{timeAgo}</Text>
 
           <Text style={styles.dashHeaderiPhone6}>Next Event</Text>
           <Text style={styles.scheduleDashBoxiPhone6}>
@@ -161,9 +162,8 @@ class Dash extends Component {
 
 
           <Text style={styles.dashHeaderiPhone4}>Latest Update</Text>
-          <Text style={styles.updatesDashBoxiPhone4}>
-          {update}    <Text style={styles.timeiPhone4}>-{timeAgo}</Text>
-          </Text>
+          <Text style={styles.updatesDashBoxiPhone4}>{update}</Text>
+          <Text style={styles.timeiPhone4}>{timeAgo}</Text>
 
           <Text style={styles.dashHeaderiPhone4}>Next Event</Text>
           <Text style={styles.scheduleDashBoxiPhone4}>
@@ -283,7 +283,9 @@ var styles = StyleSheet.create({
       fontSize: 13,
       marginBottom: 8,
       marginTop: 8,
-      color: '#A6A6A6'
+      color: '#A6A6A6',
+      textAlign: 'left',
+      width: 250,
   },
   updatesDashBoxiPhone4: {
     flex: .5,
@@ -332,7 +334,8 @@ var styles = StyleSheet.create({
       fontSize: 10,
       marginBottom: 8,
       marginTop: 8,
-      color: '#A6A6A6'
+      color: '#A6A6A6',
+      width: 250,
   },
 })
 

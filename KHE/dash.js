@@ -4,6 +4,7 @@ var React = require('react-native');
 var moment = require('moment');
 
 
+
 var {
     Image,
     StyleSheet,
@@ -101,7 +102,7 @@ class Dash extends Component {
 
       return (
         <View style={styles.container}>
-          <Image source={require('./testImage/shortLogo.png')}
+          <Image source={require('image!MainLogo')}
           style={styles.logoImage}>
           </Image>
 
@@ -124,7 +125,7 @@ class Dash extends Component {
   renderLoadingViewiPhone6() {
       return (
         <View style={styles.container}>
-          <Image source={require('./testImage/shortLogo.png')}
+          <Image source={require('image!MainLogo')}
           style={styles.logoImage}>
           </Image>
           <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
@@ -155,7 +156,7 @@ class Dash extends Component {
 
       return (
         <View style={styles.container}>
-          <Image source={require('./testImage/shortLogo.png')}
+          <Image source={require('image!MainLogo')}
           style={styles.logoImage}>
           </Image>
 
@@ -176,7 +177,7 @@ class Dash extends Component {
   renderLoadingViewiPhone4() {
       return (
         <View style={styles.container}>
-          <Image source={require('./testImage/shortLogo.png')}
+          <Image source={require('image!MainLogo')}
           style={styles.logoImage}>
           </Image>
 

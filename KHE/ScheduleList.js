@@ -25,13 +25,12 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#231F20',
-        padding: 10,
+        padding: 20,
     },
     thumbnail: {
-        width: 40,
-        height: 40,
-        marginRight: 20,
-        marginLeft: 10,
+        width: 15,
+        height: 15,
+        width: 20,
     },
     rightContainer: {
         flex: 1
@@ -43,13 +42,26 @@ var styles = StyleSheet.create({
     header: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginBottom: 8,
-        color: 'red'
+        marginBottom: -10,
+        color: 'red',
+        left: 30,
+        top: -18,
     },
     title: {
         fontSize: 14,
         marginBottom: 8,
         color: 'white'
+    },
+    time: {
+        fontSize: 14,
+        marginBottom: 8,
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    description: {
+        fontSize: 14,
+        marginBottom: 8,
+        color: '#A6A6A6',
     },
     separator: {
         height: 1,
@@ -132,24 +144,47 @@ class ScheduleList extends Component {
         // debugging uri
         // var uri = events.iconUrls.large.red;
         // console.log(uri);
-        var startTime = moment(events.start).format('lll');
-        var endTime = moment(events.end).format('h A');
+        var startTime = moment(events.start).format('ddd h:mm A');
+        var endTime = moment(events.end).format('h:mm A');
 
-        return (
-                <View style={styles.container}>
-                  <Image
-                    source={{uri: events.iconUrls.large.white}}
-                    style={styles.thumbnail}
-                    />
-                        <View style={styles.rightContainer}>
-                            <Text style={styles.header}>{events.title}</Text>
-                            <Text style={styles.title}>📍  {events.location}</Text>
-                            <Text style={styles.title}>🕒  {startTime} - {endTime}</Text>
-                            <Text style={styles.title}>📣  {events.description}</Text>
-                        </View>
-                    <View style={styles.separator} />
+        if (events.description) {
+          return (
+            <View style={styles.container}>
+                <View style={styles.rightContainer}>
+                    <View>
+                      <Image
+                        source={{uri: events.iconUrls.large.white}}
+                        style={styles.thumbnail}
+                      />
+                      <Text style={styles.header}>{events.title}</Text>
+                    </View>
+                    <Text style={styles.time}>{startTime} - {endTime}</Text>
+                    <Text style={styles.title}>{events.location}</Text>
+                    <Text style={styles.description}>{events.description}</Text>
                 </View>
-        );
+                <View style={styles.separator} />
+            </View>
+          );
+        } else {
+          return (
+            <View style={styles.container}>
+                <View style={styles.rightContainer}>
+                    <View style={styles.eventHeader}>
+                      <Image
+                        source={{uri: events.iconUrls.large.white}}
+                        style={styles.thumbnail}
+                      />
+                      <Text style={styles.header}>{events.title}</Text>
+                    </View>
+                    <Text style={styles.time}>{startTime} - {endTime}</Text>
+                    <Text style={styles.title}>{events.location}</Text>
+                </View>
+                <View style={styles.separator} />
+            </View>
+          );
+        }
+
+
     }
 
     renderLoadingView() {

@@ -87,12 +87,12 @@ class Dash extends Component {
 
 
 
-          <Text style={styles.dashHeader}>Latest Update!</Text>
+          <Text style={styles.dashHeader}>Latest Update</Text>
           <Text style={styles.updatesDashBox}>
           {update}
           </Text>
 
-          <Text style={styles.dashHeader}>Next Event!</Text>
+          <Text style={styles.dashHeader}>Next Event</Text>
           <Text style={styles.scheduleDashBox}>
           {events} at {startTime}
           </Text>
@@ -149,8 +149,8 @@ var styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
-    width: 250,
-    textAlign: 'center',
+    width: 330,
+    textAlign: 'left',
     color: 'white',
     position: 'relative',
   },
@@ -159,9 +159,9 @@ var styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#231F20',
     height: 100,
-    width: 250,
+    width: 330,
     marginBottom: 10,
-    textAlign: 'center',
+    textAlign: 'left',
     color: 'white',
     position: 'relative',
   },
@@ -170,11 +170,10 @@ var styles = StyleSheet.create({
     fontSize: 22,
     paddingBottom: 3,
     backgroundColor: '#231F20',
-    width: 250,
-    textAlign: 'center',
+    width: 330,
+    textAlign: 'left',
     color: 'red',
     fontWeight: 'bold',
-
   },
   container: {
     flex: 1,

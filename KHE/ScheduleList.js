@@ -24,7 +24,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#231F20',
+        backgroundColor: '#222222',
         padding: 20,
     },
     thumbnail: {
@@ -65,11 +65,11 @@ var styles = StyleSheet.create({
     },
     separator: {
         height: 1,
-        backgroundColor: '#231F20'
+        backgroundColor: '#222222'
     },
     listView: {
         flex: 1,
-        backgroundColor: '#231F20',
+        backgroundColor: '#222222',
         marginTop: 20
     },
     loading: {
@@ -78,7 +78,7 @@ var styles = StyleSheet.create({
         justifyContent: 'center'
     },
     background: {
-      backgroundColor: '#231F20',
+      backgroundColor: '#222222',
       flex: 1,
     },
     loading: {
@@ -86,7 +86,7 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'center',
-        backgroundColor: '#231F20',
+        backgroundColor: '#222222',
     },
     fonticon: {
       width: 10,

@@ -27,7 +27,7 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#231F20',
+        backgroundColor: '#222222',
         padding: 20
     },
     thumbnail: {
@@ -56,10 +56,10 @@ var styles = StyleSheet.create({
     listView: {
         flex: 1,
         marginTop: 20,
-        backgroundColor: '#231F20'
+        backgroundColor: '#222222'
     },
     background: {
-      backgroundColor: '#231F20',
+      backgroundColor: '#222222',
       flex: 1,
     },
     loading: {

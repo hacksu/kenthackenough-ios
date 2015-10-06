@@ -67,19 +67,19 @@ var styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    backgroundColor: '#231F20',
+    backgroundColor: '#222222',
     flexDirection: 'column',
     paddingVertical: 20,
   },
   webStyle: {
     flex: 1,
-    backgroundColor: '#231F20',
+    backgroundColor: '#222222',
     marginBottom: 10
   },
   buttonStyle: {
     color: 'white',
     textAlign: 'left',
-    backgroundColor: '#231F20',
+    backgroundColor: '#222222',
     fontSize: 15,
     textAlign: 'center',
     marginBottom: 40

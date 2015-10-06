@@ -51939,10 +51939,11 @@ Object.keys(componentOrElement));}
 
 module.exports = findDOMNode;
 });
-__d('KHE/dash.js',["react-native/Libraries/react-native/react-native.js","moment/moment.js","react-native-device/Device.js","KHE/testImage/shortLogo.png","KHE/testImage/shortLogo.png","KHE/testImage/shortLogo.png","KHE/testImage/shortLogo.png"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined;}else {return get(parent,property,receiver);}}else if('value' in desc){return desc.value;}else {var getter=desc.get;if(getter === undefined){return undefined;}return getter.call(receiver);}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass;}
+__d('KHE/dash.js',["image!MainLogo","image!MainLogo","image!MainLogo","image!MainLogo","react-native/Libraries/react-native/react-native.js","moment/moment.js","react-native-device/Device.js"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined;}else {return get(parent,property,receiver);}}else if('value' in desc){return desc.value;}else {var getter=desc.get;if(getter === undefined){return undefined;}return getter.call(receiver);}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass;}
 
 var React=require('react-native/Libraries/react-native/react-native.js');
 var moment=require('moment/moment.js');var 
+
 
 
 
@@ -52042,7 +52043,7 @@ function renderLoadediPhone6(events,update,startTime,timeAgo){
 
 return (
 React.createElement(View,{style:styles.container},
-React.createElement(Image,{source:require('KHE/testImage/shortLogo.png'),
+React.createElement(Image,{source:require('image!MainLogo'),
 style:styles.logoImage}),
 
 
@@ -52065,7 +52066,7 @@ events,' at ',startTime)));}},{key:'renderLoadingViewiPhone6',value:
 function renderLoadingViewiPhone6(){
 return (
 React.createElement(View,{style:styles.container},
-React.createElement(Image,{source:require('KHE/testImage/shortLogo.png'),
+React.createElement(Image,{source:require('image!MainLogo'),
 style:styles.logoImage}),
 
 React.createElement(Text,{style:styles.dashHeaderiPhone6},'Latest Update'),
@@ -52096,7 +52097,7 @@ function renderLoadediPhone4(events,update,startTime,timeAgo){
 
 return (
 React.createElement(View,{style:styles.container},
-React.createElement(Image,{source:require('KHE/testImage/shortLogo.png'),
+React.createElement(Image,{source:require('image!MainLogo'),
 style:styles.logoImage}),
 
 
@@ -52117,7 +52118,7 @@ events,' at ',startTime)));}},{key:'renderLoadingViewiPhone4',value:
 function renderLoadingViewiPhone4(){
 return (
 React.createElement(View,{style:styles.container},
-React.createElement(Image,{source:require('KHE/testImage/shortLogo.png'),
+React.createElement(Image,{source:require('image!MainLogo'),
 style:styles.logoImage}),
 
 
@@ -55500,7 +55501,7 @@ return this.model.indexOf('iPhone') >= 0;}}]);return Device;})();
 
 module.exports = new Device();
 });
-__d('KHE/testImage/shortLogo.png',[],function(global, require, module, exports) {  module.exports = require("AssetRegistry").registerAsset({"__packager_asset":true,"fileSystemLocation":"/Users/jake/code/kenthackenough-ios/KHE/testImage","httpServerLocation":"/assets/testImage","width":1601,"height":774,"scales":[1],"hash":"223497124d2fcb51f75aa747bdbec0e9","name":"shortLogo","type":"png"});
+__d('image!MainLogo',[],function(global, require, module, exports) {  module.exports = {"__packager_asset":true,"isStatic":true,"path":"/Users/jake/code/kenthackenough-ios/KHE/ios/KHE/Images.xcassets/MainLogo.imageset/MainLogo.png","uri":"MainLogo","width":1601,"height":774,"deprecated":true};
 });
 __d('KHE/UpdateList.js',["react-native/Libraries/react-native/react-native.js","react-native-markdown/Markdown.js","moment/moment.js"],function(global, require, module, exports) {  'use strict';var _createClass=(function(){function defineProperties(target,props){for(var i=0;i < props.length;i++) {var descriptor=props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if('value' in descriptor)descriptor.writable = true;Object.defineProperty(target,descriptor.key,descriptor);}}return function(Constructor,protoProps,staticProps){if(protoProps)defineProperties(Constructor.prototype,protoProps);if(staticProps)defineProperties(Constructor,staticProps);return Constructor;};})();var _get=function get(object,property,receiver){if(object === null)object = Function.prototype;var desc=Object.getOwnPropertyDescriptor(object,property);if(desc === undefined){var parent=Object.getPrototypeOf(object);if(parent === null){return undefined;}else {return get(parent,property,receiver);}}else if('value' in desc){return desc.value;}else {var getter=desc.get;if(getter === undefined){return undefined;}return getter.call(receiver);}};function _classCallCheck(instance,Constructor){if(!(instance instanceof Constructor)){throw new TypeError('Cannot call a class as a function');}}function _inherits(subClass,superClass){if(typeof superClass !== 'function' && superClass !== null){throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass);}subClass.prototype = Object.create(superClass && superClass.prototype,{constructor:{value:subClass,enumerable:false,writable:true,configurable:true}});if(superClass)Object.setPrototypeOf?Object.setPrototypeOf(subClass,superClass):subClass.__proto__ = superClass;}
 

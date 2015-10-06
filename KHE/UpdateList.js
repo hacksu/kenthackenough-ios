@@ -25,7 +25,8 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#231F20',
+        //backgroundColor: '#231F20',
+        backgroundColor: '#141414',
         padding: 10
     },
     thumbnail: {
@@ -37,16 +38,24 @@ var styles = StyleSheet.create({
         flex: 1
     },
     title: {
-        fontSize: 20,
+        fontSize: 16,
         marginBottom: 8,
         color: 'white'
     },
     separator: {
-        height: 1,
-        backgroundColor: '#dddddd'
+        //height: 1,
+        //backgroundColor: '#dddddd'
+        //backgroundColor: 'red'
+        //backgroundColor: '#141414'
     },
     listView: {
-        backgroundColor: '#F5FCFF'
+        flex: 1,
+        marginTop: 20,
+        backgroundColor: '#231F20'
+    },
+    background: {
+      backgroundColor: '#231F20',
+      flex: 1,
     },
     loading: {
         flex: 1,
@@ -90,11 +99,13 @@ class UpdateList extends Component {
         }
 
         return (
+          <View style={styles.background}>
             <ListView
                 dataSource={this.state.dataSource}
                 renderRow={this.renderMessage.bind(this)}
                 style={styles.listView}
                 />
+          </View>
         );
     }
 
@@ -102,6 +113,7 @@ class UpdateList extends Component {
         return (
 
                 <View>
+                    <View style={styles.separator} />
                     <View style={styles.container}>
                         <View style={styles.rightContainer}>
                             <Text style={styles.title}>{messages.text}</Text>

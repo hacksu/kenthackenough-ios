@@ -24,8 +24,9 @@ var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
 
 var Device = require('react-native-device');
 
-var iphone4swidth = 320;
-var iphone6width = 375;
+var iphone4height = 480;
+var iphone5height = 568;
+var iphone6height = 667;
 
 
 class Dash extends Component {
@@ -151,14 +152,18 @@ class Dash extends Component {
     console.log(Device.height);
 
     if (this.state.isLoading) {
-      if(Device.width === iphone4swidth){
+      if(Device.height === iphone4height){
         return this.renderLoadingViewiPhone4();
-      }else {
+      } else if (Device.height === iphone5height){
+        return this.renderLoadingViewiPhone5();
+      } else {
         return this.renderLoadingViewiPhone6();
       }
     }else {
-      if(Device.width === iphone4swidth){
+      if(Device.height === iphone4height){
         return this.renderLoadediPhone4(events , update , timeAgo);
+      } else if (Device.height === iphone5height){
+        return this.renderLoadediPhone5(events , update , timeAgo);
       }else {
         return this.renderLoadediPhone6(events , update , timeAgo);
       }
@@ -169,7 +174,7 @@ class Dash extends Component {
 
 
 
-
+//iphone 6
   renderLoadediPhone6(events , update, timeAgo) {
       //this.fetchNextEvent();
 
@@ -227,8 +232,67 @@ class Dash extends Component {
       );
   }
 
+//iphone 5
+renderLoadediPhone5(events , update, timeAgo) {
+  //this.fetchNextEvent();
+
+    return (
+      <View style={styles.container}>
+        <Image source={require('image!MainLogo')}
+        style={styles.logoImage}>
+        </Image>
 
 
+
+        <Text style={styles.dashHeaderiPhone5}>Latest Update</Text>
+        <Text style={styles.updatesDashBoxiPhone5}>{update}</Text>
+        <Text style={styles.timeiPhone5}>{timeAgo}</Text>
+
+        <Text style={styles.dashHeaderiPhone5}>Next Event</Text>
+        <Text style={styles.scheduleDashBoxiPhone5}>
+        {events}
+        </Text>
+      </View>
+    );
+}
+
+renderLoadingViewiPhone5() {
+    return (
+      <View style={styles.container}>
+        <Image source={require('image!MainLogo')}
+        style={styles.logoImage}>
+        </Image>
+
+
+
+        <Text style={styles.dashHeaderiPhone5}>Latest Update</Text>
+
+        <View style={styles.loadingiPhone5}>
+            <ActivityIndicatorIOS
+                size='small'/>
+            <Text style={styles.loadingTextiPhone5}>
+                Loading Updates...
+            </Text>
+        </View>
+
+
+        <Text style={styles.dashHeaderiPhone5}>Next Event</Text>
+
+        <View style={styles.loadingiPhone5}>
+            <ActivityIndicatorIOS
+                size='small'/>
+            <Text style={styles.loadingTextiPhone5}>
+                Loading Events...
+            </Text>
+        </View>
+
+      </View>
+    );
+}
+
+
+
+//iphone 4
   renderLoadediPhone4(events , update, timeAgo) {
     //this.fetchNextEvent();
 
@@ -292,6 +356,8 @@ class Dash extends Component {
 }
 
 var styles = StyleSheet.create({
+
+  //general
   description: {
     flex: 1,
     marginTop: 10,
@@ -300,6 +366,23 @@ var styles = StyleSheet.create({
     textAlign: 'center',
     color: '#FFFFFF'
   },
+  container: {
+    flex: 1,
+    position: 'relative',
+    alignItems: 'center',
+    backgroundColor: '#222222',
+    paddingVertical: 20,
+  },
+  logoImage: {
+    flex: 1.5,
+    width: 250,
+    height: 100,
+    marginTop: 80,
+    resizeMode: Image.resizeMode.contain,
+    position: 'relative',
+  },
+
+  //iphone 6
   updatesDashBoxiPhone6: {
     flex: .5,
     fontSize: 16,
@@ -332,21 +415,6 @@ var styles = StyleSheet.create({
     fontWeight: 'bold',
 
   },
-  container: {
-    flex: 1,
-    position: 'relative',
-    alignItems: 'center',
-    backgroundColor: '#222222',
-    paddingVertical: 20,
-  },
-  logoImage: {
-    flex: 1.5,
-    width: 250,
-    height: 100,
-    marginTop: 80,
-    resizeMode: Image.resizeMode.contain,
-    position: 'relative',
-  },
   loadingTextiPhone6: {
     flex: 1,
     fontSize: 16,
@@ -367,6 +435,63 @@ var styles = StyleSheet.create({
       textAlign: 'left',
       width: 250,
   },
+
+  //iphone 5
+  updatesDashBoxiPhone5: {
+    flex: .5,
+    fontSize: 14,
+    backgroundColor: '#222222',
+    height: 100,
+    width: 250,
+    textAlign: 'left',
+    color: 'white',
+    position: 'relative',
+  },
+  scheduleDashBoxiPhone5: {
+    flex: 1,
+    fontSize: 14,
+    backgroundColor: '#222222',
+    height: 100,
+    width: 250,
+    marginBottom: 10,
+    textAlign: 'left',
+    color: 'white',
+    position: 'relative',
+  },
+  dashHeaderiPhone5: {
+    marginTop: 40,
+    fontSize: 19,
+    paddingBottom: 3,
+    backgroundColor: '#222222',
+    width: 250,
+    textAlign: 'left',
+    color: 'red',
+    fontWeight: 'bold',
+
+  },
+  loadingTextiPhone5: {
+    flex: 1,
+    fontSize: 14,
+    textAlign: 'center',
+    color: '#FFFFFF',
+  },
+  loadingiPhone5: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: '#222222',
+  },
+  timeiPhone5: {
+      fontSize: 12,
+      marginBottom: 8,
+      marginTop: 8,
+      color: '#A6A6A6',
+      textAlign: 'left',
+      width: 250,
+  },
+
+
+  //iphone 4
   updatesDashBoxiPhone4: {
     flex: .5,
     fontSize: 12,

@@ -82,21 +82,24 @@ class Dash extends Component {
 
     fetchNextEvent() {
       console.log("in fetchNextEvent");
-      console.log(this.state.dataSourceSchedule);
+      //console.log(this.state.dataSourceSchedule);
       //var TodaysDate = moment().date();
       //var TodaysDate = 10;
-      var todaysDateISO = moment().format();
-      console.log("date");
+      console.log("today");
+      //var todaysDateISO = moment().format();
+      var todaysDateISO = '2015-10-09T23:21:15-04:00';
+      //console.log("date");
       console.log(todaysDateISO);
       var ScheduleObject = [];
       ScheduleObject = this.state.dataSourceSchedule.events;
       console.log(ScheduleObject);
-      var EventsToday = [];
+      var nextEventIndex;
+      var EventNext = [];
 
     if (typeof ScheduleObject != 'undefined'){
       for (var i = 0; i < ScheduleObject.length; i++){
-        //console.log("poop");
-        //console.log(ScheduleObject[i].start);
+        console.log("ScheduleObject");
+        console.log(ScheduleObject[i].start);
         // var eventDate = moment(ScheduleObject[i].start).format("D");
         // console.log(eventDate);
         // console.log(TodaysDate);
@@ -108,19 +111,32 @@ class Dash extends Component {
         //   console.log("after");
         // }
 
-        if(moment(ScheduleObject[i].start).isAfter()){}
-
+        if(moment(ScheduleObject[i].start).isAfter(todaysDateISO)){
+          nextEventIndex = i;
+          console.log("final index");
+          console.log(nextEventIndex);
+          break;
+        }
       }
     }
+    if (typeof ScheduleObject != 'undefined'){
+        EventNext = ScheduleObject[nextEventIndex];
+        console.log("NExt Event");
+        console.log(EventNext);
+    }
+    var nextevetTitle = EventNext.title;
+    var nexteventTime = moment(EventNext.start).format("h A");
 
-
-
+    var eventString = nextevetTitle +" at " + nexteventTime;
+    console.log(eventString);
+    return eventString;
     }
 
 
 
   render() {
-    var events = this.state.dataSourceSchedule; //
+    var events = this.fetchNextEvent();
+    //var events = this.state.dataSourceSchedule; //
     var update = this.state.dataSourceMessages;
     var timeAgo = moment(this.state.dataSourceMessagesTime).fromNow();
     var startTime = moment(this.state.dataSourceScheduleTime).format("h A"); //
@@ -150,7 +166,7 @@ class Dash extends Component {
 
 
   renderLoadediPhone6(events , update, startTime, timeAgo) {
-      this.fetchNextEvent();
+      //this.fetchNextEvent();
 
       return (
         <View style={styles.container}>
@@ -209,7 +225,7 @@ class Dash extends Component {
 
 
   renderLoadediPhone4(events , update, startTime, timeAgo) {
-    this.fetchNextEvent();
+    //this.fetchNextEvent();
 
       return (
         <View style={styles.container}>

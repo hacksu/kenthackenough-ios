@@ -65,8 +65,9 @@ var styles = StyleSheet.create({
     loading: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+        backgroundColor: '#222222',
+    },
 });
 
 var mdStyles = StyleSheet.create({
@@ -82,6 +83,7 @@ class UpdateList extends Component {
         super(props);
         this.state = {
             isLoading: true,
+            forceUpdate: 0,
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2
             })
@@ -92,15 +94,23 @@ class UpdateList extends Component {
         this.fetchData();
     }
 
-    fetchData() {
+    componentWillReceiveProps(props) {
 
+      //console.log('componentWillReceiveProps UpdateList');
+      this.fetchData();
+    }
+
+    fetchData() {
+      //console.log('fetch Update');
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
+                var _ds = JSON.parse(JSON.stringify(responseData));
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.messages),
+                    dataSource: this.state.dataSource.cloneWithRows(_ds.messages),
                     isLoading: false
                 });
+                //console.log(_ds);
             })
             .done();
     }
@@ -145,9 +155,7 @@ class UpdateList extends Component {
             <View style={styles.loading}>
                 <ActivityIndicatorIOS
                     size='large'/>
-                <Text>
-                    Loading updates...
-                </Text>
+
             </View>
         );
     }

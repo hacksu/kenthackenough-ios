@@ -28,8 +28,8 @@ var styles = StyleSheet.create({
         padding: 20,
     },
     thumbnail: {
-        width: 15,
-        height: 15,
+        width: 18,
+        height: 18,
         width: 20,
     },
     rightContainer: {
@@ -100,6 +100,7 @@ class ScheduleList extends Component {
         super(props);
         this.state = {
             isLoading: true,
+            forceUpdate: 0,
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2
             })
@@ -107,19 +108,31 @@ class ScheduleList extends Component {
     }
 
 
+
     componentDidMount() {
         this.fetchData();
+
     }
 
-    fetchData() {
 
+
+  componentWillReceiveProps(props) {
+    //console.log('componentWillReceiveProps Schedule');
+    this.fetchData();
+  }
+
+
+    fetchData() {
+        //console.log('fetch Schedule');
         fetch(SCHEDULE_URL)
             .then((response) => response.json())
             .then((responseData) => {
+              var _dsSchedule = JSON.parse(JSON.stringify(responseData));
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.events),
+                    dataSource: this.state.dataSource.cloneWithRows(_dsSchedule.events),
                     isLoading: false
                 });
+                //console.log(_dsSchedule);
             })
             .done();
     }

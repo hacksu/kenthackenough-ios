@@ -2,6 +2,7 @@
 
 var React = require('react-native');
 var moment = require('moment');
+var Button = require('react-native-button');
 
 
 
@@ -34,26 +35,33 @@ class Dash extends Component {
       // newUpdate: 'This is a new update with lots of text that hopefully wraps when it hits the end of the text box width',
       // nextEvent: 'This is the next event',
       isLoading: true,
-      dataSourceMessages: new ListView.DataSource({
-          rowHasChanged: (row1, row2) => row1 !== row2
-        }),
-      dataSourceSchedule: new ListView.DataSource({
-          rowHasChanged: (row1, row2) => row1 !== row2
-        })
+      dataSourceMessages: '',
+      dataSourceMessagesTime: '',
+      dataSourceSchedule: [],
+      dataSourceScheduleTime: []
       };
     }
 
     componentDidMount() {
         this.fetchData();
+
+    }
+
+    componentWillReceiveProps(props) {
+
+      console.log('componentWillReceiveProps UpdateList');
+      this.fetchData();
+
     }
 
     fetchData() {
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
+              var _ds = JSON.parse(JSON.stringify(responseData));
                 this.setState({
-                    dataSourceMessages: responseData.messages[0].text,
-                    dataSourceMessagesTime: responseData.messages[0].created,
+                    dataSourceMessages: _ds.messages[0].text,
+                    dataSourceMessagesTime: _ds.messages[0].created,
                     isLoading: false
                 });
             })
@@ -61,17 +69,50 @@ class Dash extends Component {
           fetch(SCHEDULE_URL)
               .then((response) => response.json())
               .then((responseData) => {
+                var _dsTimes = responseData;
                   this.setState({
-                      dataSourceSchedule: responseData.events[0].title,
-                      dataSourceScheduleTime: responseData.events[0].start,
+                      dataSourceSchedule: _dsTimes,
                       isLoading: false
                   });
+                  //console.log(_dsTimes);
               })
+              .then(this.fetchNextEvent() )
               .done();
     }
 
     fetchNextEvent() {
-      
+      console.log("in fetchNextEvent");
+      console.log(this.state.dataSourceSchedule);
+      //var TodaysDate = moment().date();
+      //var TodaysDate = 10;
+      var todaysDateISO = moment().format();
+      console.log("date");
+      console.log(todaysDateISO);
+      var ScheduleObject = [];
+      ScheduleObject = this.state.dataSourceSchedule.events;
+      console.log(ScheduleObject);
+      var EventsToday = [];
+
+    if (typeof ScheduleObject != 'undefined'){
+      for (var i = 0; i < ScheduleObject.length; i++){
+        //console.log("poop");
+        //console.log(ScheduleObject[i].start);
+        // var eventDate = moment(ScheduleObject[i].start).format("D");
+        // console.log(eventDate);
+        // console.log(TodaysDate);
+        // if(eventDate > TodaysDate){
+        //   console.log("early");
+        // } else if (eventDate == TodaysDate) {
+        //   console.log("today");
+        // } else {
+        //   console.log("after");
+        // }
+
+        if(moment(ScheduleObject[i].start).isAfter()){}
+
+      }
+    }
+
 
 
     }
@@ -79,13 +120,14 @@ class Dash extends Component {
 
 
   render() {
-    var events = this.state.dataSourceSchedule;
+    var events = this.state.dataSourceSchedule; //
     var update = this.state.dataSourceMessages;
     var timeAgo = moment(this.state.dataSourceMessagesTime).fromNow();
-    var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
+    var startTime = moment(this.state.dataSourceScheduleTime).format("h A"); //
     // console.log(events);
+    //console.log(this.state.dataSourceSchedule);
     // console.log(update);
-    console.log(Device.width);
+    //console.log(Device.width);
 
     if (this.state.isLoading) {
       if(Device.width === iphone4swidth){
@@ -104,7 +146,11 @@ class Dash extends Component {
 
   }
 
+
+
+
   renderLoadediPhone6(events , update, startTime, timeAgo) {
+      this.fetchNextEvent();
 
       return (
         <View style={styles.container}>
@@ -114,10 +160,14 @@ class Dash extends Component {
 
 
 
-          <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
+
+          <Text style={styles.dashHeaderiPhone6} >Latest Update</Text>
           <Text style={styles.updatesDashBoxiPhone6}>
             {update}
           </Text>
+
+
+
           <Text style={styles.timeiPhone6}>{timeAgo}</Text>
 
           <Text style={styles.dashHeaderiPhone6}>Next Event</Text>
@@ -134,7 +184,7 @@ class Dash extends Component {
           <Image source={require('image!MainLogo')}
           style={styles.logoImage}>
           </Image>
-          <Text style={styles.dashHeaderiPhone6}>Latest Update</Text>
+          <Text style={styles.dashHeaderiPhone6} >Latest Update</Text>
           <View style={styles.loadingiPhone6}>
               <ActivityIndicatorIOS
                   size='small'/>
@@ -159,6 +209,7 @@ class Dash extends Component {
 
 
   renderLoadediPhone4(events , update, startTime, timeAgo) {
+    this.fetchNextEvent();
 
       return (
         <View style={styles.container}>
@@ -213,6 +264,7 @@ class Dash extends Component {
         </View>
       );
   }
+
 
 
 

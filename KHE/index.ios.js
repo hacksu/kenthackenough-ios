@@ -42,6 +42,9 @@ class KHE extends Component {
     };
   }
 
+
+
+
   render() {
     return (
       StatusBarIOS.setStyle('light-content'),

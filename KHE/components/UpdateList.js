@@ -155,9 +155,7 @@ class UpdateList extends Component {
             <View style={styles.loading}>
                 <ActivityIndicatorIOS
                     size='large'/>
-                <Text>
-                    Loading updates...
-                </Text>
+
             </View>
         );
     }

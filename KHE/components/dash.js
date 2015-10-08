@@ -148,7 +148,7 @@ class Dash extends Component {
     // console.log(events);
     //console.log(this.state.dataSourceSchedule);
     // console.log(update);
-    console.log(Device.width);
+    console.log(Device.height);
 
     if (this.state.isLoading) {
       if(Device.width === iphone4swidth){

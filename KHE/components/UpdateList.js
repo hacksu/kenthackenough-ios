@@ -5,9 +5,9 @@ var Markdown = require('react-native-markdown');
 var moment = require('moment');
 
 // production
-var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+//var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
 // local
-//var MESSEGES_URL = 'http://localhost:3000/db'
+var MESSEGES_URL = 'http://localhost:3000/db'
 
 var {
     Image,
@@ -65,8 +65,9 @@ var styles = StyleSheet.create({
     loading: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center'
-    }
+        justifyContent: 'center',
+        backgroundColor: '#222222',
+    },
 });
 
 var mdStyles = StyleSheet.create({
@@ -82,6 +83,7 @@ class UpdateList extends Component {
         super(props);
         this.state = {
             isLoading: true,
+            forceUpdate: 0,
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2
             })
@@ -92,15 +94,23 @@ class UpdateList extends Component {
         this.fetchData();
     }
 
-    fetchData() {
+    componentWillReceiveProps(props) {
 
+      console.log('componentWillReceiveProps UpdateList');
+      this.fetchData();
+    }
+
+    fetchData() {
+      console.log('fetch Update');
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
+                var _ds = JSON.parse(JSON.stringify(responseData));
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.messages),
+                    dataSource: this.state.dataSource.cloneWithRows(_ds.messages),
                     isLoading: false
                 });
+                console.log(_ds);
             })
             .done();
     }

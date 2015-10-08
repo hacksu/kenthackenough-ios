@@ -1,11 +1,14 @@
 'use strict';
 
+//var Reflux = require('reflux');
+//var Actions = require('./actions.js');
+
 // REQUIREMENTS
 var React = require('react-native');
-var Dash = require('./dash.js');
-var UpdateList = require('./UpdateList.js');
-var Links = require('./links.js');
-var ScheduleList = require('./ScheduleList.js');
+var Dash = require('./components/dash.js');
+var UpdateList = require('./components/UpdateList.js');
+var Links = require('./components/links.js');
+var ScheduleList = require('./components/ScheduleList.js');
 
 var {
   AppRegistry,
@@ -74,10 +77,10 @@ class KHE extends Component {
           onPress={() => {
             this.setState({
               selectedTab: 'scheduleTab',
-              isLoading: true
+              forceUpdate: Math.random()
             });
           }}>
-        <ScheduleList />
+        <ScheduleList  />
         </TabBarIOS.Item>
 
 

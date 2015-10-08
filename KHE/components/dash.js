@@ -70,6 +70,12 @@ class Dash extends Component {
               .done();
     }
 
+    fetchNextEvent() {
+      
+
+
+    }
+
 
 
   render() {
@@ -79,7 +85,7 @@ class Dash extends Component {
     var startTime = moment(this.state.dataSourceScheduleTime).format("h A");
     // console.log(events);
     // console.log(update);
-    //console.log(Device.width);
+    console.log(Device.width);
 
     if (this.state.isLoading) {
       if(Device.width === iphone4swidth){

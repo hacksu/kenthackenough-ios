@@ -5,9 +5,9 @@ var Markdown = require('react-native-markdown');
 var moment = require('moment');
 
 // production
-//var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
+var MESSEGES_URL = 'https://api.khe.io/v1.0/messages';
 // local
-var MESSEGES_URL = 'http://localhost:3000/db'
+//var MESSEGES_URL = 'http://localhost:3000/db'
 
 var {
     Image,

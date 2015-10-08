@@ -54,6 +54,7 @@ class Dash extends Component {
     }
 
     fetchData() {
+      console.log('fetch Dash');
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
@@ -85,20 +86,22 @@ class Dash extends Component {
       //var TodaysDate = moment().date();
       //var TodaysDate = 10;
       console.log("today");
-      //var todaysDateISO = moment().format();
-      var todaysDateISO = '2015-10-10T14:00:00-04:00';
+      //prod time string
+      var todaysDateISO = moment().format();
+      //dev time string
+      //var todaysDateISO = '2015-10-10T14:00:00-04:00';
       //console.log("date");
       console.log(todaysDateISO);
       var ScheduleObject = [];
       ScheduleObject = this.state.dataSourceSchedule.events;
-      console.log(ScheduleObject);
+      //console.log(ScheduleObject);
       var nextEventIndex;
       var EventNext = [];
 
     if (typeof ScheduleObject != 'undefined'){
       for (var i = 0; i < ScheduleObject.length; i++){
-        console.log("ScheduleObject");
-        console.log(ScheduleObject[i].start);
+        //console.log("ScheduleObject");
+        //console.log(ScheduleObject[i].start);
         // var eventDate = moment(ScheduleObject[i].start).format("D");
         // console.log(eventDate);
         // console.log(TodaysDate);

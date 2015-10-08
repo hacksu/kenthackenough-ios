@@ -37,8 +37,7 @@ class Dash extends Component {
       isLoading: true,
       dataSourceMessages: '',
       dataSourceMessagesTime: '',
-      dataSourceSchedule: [],
-      dataSourceScheduleTime: []
+      dataSourceSchedule: []
       };
     }
 
@@ -49,7 +48,7 @@ class Dash extends Component {
 
     componentWillReceiveProps(props) {
 
-      console.log('componentWillReceiveProps UpdateList');
+      console.log('componentWillReceiveProps Dash');
       this.fetchData();
 
     }
@@ -87,7 +86,7 @@ class Dash extends Component {
       //var TodaysDate = 10;
       console.log("today");
       //var todaysDateISO = moment().format();
-      var todaysDateISO = '2015-10-09T23:21:15-04:00';
+      var todaysDateISO = '2015-10-10T14:00:00-04:00';
       //console.log("date");
       console.log(todaysDateISO);
       var ScheduleObject = [];
@@ -124,10 +123,13 @@ class Dash extends Component {
         console.log("NExt Event");
         console.log(EventNext);
     }
-    var nextevetTitle = EventNext.title;
-    var nexteventTime = moment(EventNext.start).format("h A");
+    var nextevetTitle = "Loading";
+    var nexteventTime = ""
+    nextevetTitle = EventNext.title;
+    nexteventTime = moment(EventNext.start).format("h A");
 
-    var eventString = nextevetTitle +" at " + nexteventTime;
+    var eventString = "Loading...";
+    eventString = nextevetTitle +" at " + nexteventTime;
     console.log(eventString);
     return eventString;
     }
@@ -139,7 +141,7 @@ class Dash extends Component {
     //var events = this.state.dataSourceSchedule; //
     var update = this.state.dataSourceMessages;
     var timeAgo = moment(this.state.dataSourceMessagesTime).fromNow();
-    var startTime = moment(this.state.dataSourceScheduleTime).format("h A"); //
+    //var startTime = moment(this.state.dataSourceScheduleTime).format("h A"); //
     // console.log(events);
     //console.log(this.state.dataSourceSchedule);
     // console.log(update);
@@ -153,9 +155,9 @@ class Dash extends Component {
       }
     }else {
       if(Device.width === iphone4swidth){
-        return this.renderLoadediPhone4(events , update , startTime, timeAgo);
+        return this.renderLoadediPhone4(events , update , timeAgo);
       }else {
-        return this.renderLoadediPhone6(events , update , startTime, timeAgo);
+        return this.renderLoadediPhone6(events , update , timeAgo);
       }
 
     }
@@ -165,7 +167,7 @@ class Dash extends Component {
 
 
 
-  renderLoadediPhone6(events , update, startTime, timeAgo) {
+  renderLoadediPhone6(events , update, timeAgo) {
       //this.fetchNextEvent();
 
       return (
@@ -188,7 +190,7 @@ class Dash extends Component {
 
           <Text style={styles.dashHeaderiPhone6}>Next Event</Text>
           <Text style={styles.scheduleDashBoxiPhone6}>
-          {events} at {startTime}
+          {events}
           </Text>
         </View>
       );
@@ -224,7 +226,7 @@ class Dash extends Component {
 
 
 
-  renderLoadediPhone4(events , update, startTime, timeAgo) {
+  renderLoadediPhone4(events , update, timeAgo) {
     //this.fetchNextEvent();
 
       return (
@@ -241,7 +243,7 @@ class Dash extends Component {
 
           <Text style={styles.dashHeaderiPhone4}>Next Event</Text>
           <Text style={styles.scheduleDashBoxiPhone4}>
-          {events} at {startTime}
+          {events}
           </Text>
         </View>
       );

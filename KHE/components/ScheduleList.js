@@ -117,23 +117,22 @@ class ScheduleList extends Component {
 
 
   componentWillReceiveProps(props) {
-  this.setState({
-    forceUpdate: Math.random()
-    });
+    console.log('componentWillReceiveProps Schedule');
     this.fetchData();
-    console.log('hello');
   }
 
 
     fetchData() {
-        console.log('update');
+        console.log('fetch Schedule');
         fetch(SCHEDULE_URL)
             .then((response) => response.json())
             .then((responseData) => {
+              var _dsSchedule = JSON.parse(JSON.stringify(responseData));
                 this.setState({
-                    dataSource: this.state.dataSource.cloneWithRows(responseData.events),
+                    dataSource: this.state.dataSource.cloneWithRows(_dsSchedule.events),
                     isLoading: false
                 });
+                console.log(_dsSchedule);
             })
             .done();
     }

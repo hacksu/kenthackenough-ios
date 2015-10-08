@@ -48,13 +48,13 @@ class Dash extends Component {
 
     componentWillReceiveProps(props) {
 
-      console.log('componentWillReceiveProps Dash');
+      //console.log('componentWillReceiveProps Dash');
       this.fetchData();
 
     }
 
     fetchData() {
-      console.log('fetch Dash');
+      //console.log('fetch Dash');
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
@@ -81,17 +81,17 @@ class Dash extends Component {
     }
 
     fetchNextEvent() {
-      console.log("in fetchNextEvent");
+      //console.log("in fetchNextEvent");
       //console.log(this.state.dataSourceSchedule);
       //var TodaysDate = moment().date();
       //var TodaysDate = 10;
-      console.log("today");
+      //console.log("today");
       //prod time string
       var todaysDateISO = moment().format();
       //dev time string
       //var todaysDateISO = '2015-10-10T14:00:00-04:00';
       //console.log("date");
-      console.log(todaysDateISO);
+      //console.log(todaysDateISO);
       var ScheduleObject = [];
       ScheduleObject = this.state.dataSourceSchedule.events;
       //console.log(ScheduleObject);
@@ -115,16 +115,16 @@ class Dash extends Component {
 
         if(moment(ScheduleObject[i].start).isAfter(todaysDateISO)){
           nextEventIndex = i;
-          console.log("final index");
-          console.log(nextEventIndex);
+          //console.log("final index");
+          //console.log(nextEventIndex);
           break;
         }
       }
     }
     if (typeof ScheduleObject != 'undefined'){
         EventNext = ScheduleObject[nextEventIndex];
-        console.log("NExt Event");
-        console.log(EventNext);
+        //console.log("NExt Event");
+        //console.log(EventNext);
     }
     var nextevetTitle = "Loading";
     var nexteventTime = ""
@@ -133,7 +133,7 @@ class Dash extends Component {
 
     var eventString = "Loading...";
     eventString = nextevetTitle +" at " + nexteventTime;
-    console.log(eventString);
+    //console.log(eventString);
     return eventString;
     }
 

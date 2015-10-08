@@ -117,13 +117,13 @@ class ScheduleList extends Component {
 
 
   componentWillReceiveProps(props) {
-    console.log('componentWillReceiveProps Schedule');
+    //console.log('componentWillReceiveProps Schedule');
     this.fetchData();
   }
 
 
     fetchData() {
-        console.log('fetch Schedule');
+        //console.log('fetch Schedule');
         fetch(SCHEDULE_URL)
             .then((response) => response.json())
             .then((responseData) => {
@@ -132,7 +132,7 @@ class ScheduleList extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(_dsSchedule.events),
                     isLoading: false
                 });
-                console.log(_dsSchedule);
+                //console.log(_dsSchedule);
             })
             .done();
     }

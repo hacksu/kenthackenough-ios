@@ -96,12 +96,12 @@ class UpdateList extends Component {
 
     componentWillReceiveProps(props) {
 
-      console.log('componentWillReceiveProps UpdateList');
+      //console.log('componentWillReceiveProps UpdateList');
       this.fetchData();
     }
 
     fetchData() {
-      console.log('fetch Update');
+      //console.log('fetch Update');
         fetch(MESSEGES_URL)
             .then((response) => response.json())
             .then((responseData) => {
@@ -110,7 +110,7 @@ class UpdateList extends Component {
                     dataSource: this.state.dataSource.cloneWithRows(_ds.messages),
                     isLoading: false
                 });
-                console.log(_ds);
+                //console.log(_ds);
             })
             .done();
     }
